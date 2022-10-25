@@ -195,3 +195,6 @@ gaps inner 5
 gaps outer 5
 #smart_borders on
 #smart_gaps on
+
+exec --no-startup-id xfsettingsd &
+exec --no-startup-id "feh --bg-fill ~/Pictures/sunset.png"
