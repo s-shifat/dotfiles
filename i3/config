@@ -200,5 +200,7 @@ gaps outer 5
 #smart_borders on
 #smart_gaps on
 
+# strat ups
 exec --no-startup-id xfsettingsd &
 exec --no-startup-id "feh --bg-fill ~/Pictures/car.png"
+exec --no-startup-id "picom &"
