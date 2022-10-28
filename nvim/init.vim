@@ -26,6 +26,8 @@ call plug#end()
 
 " set colorscheme
 colorscheme dracula
+highlight  Normal ctermbg=none
+highlight  NonText ctermbg=none
 
 
 " Key bindings
