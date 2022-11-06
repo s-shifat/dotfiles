@@ -1,0 +1,12 @@
+#!/bin/bash
+
+DOTS=$HOME/dotfiles
+CNFG=$HOME/.config
+
+rm $DOTS/$1
+
+cp -r $CNFG/$1 $DOTS/
+rm -rf $CNFG/$1
+
+ln -nfs $DOTS/$1 $CNFG/
+
