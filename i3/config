@@ -245,7 +245,7 @@ gaps outer 5
 
 # strat ups
 exec --no-startup-id xfsettingsd &
-exec_always --no-startup-id "feh --bg-fill ~/Pictures/room.jpg"
+exec_always --no-startup-id "feh --bg-fill ~/dotfiles/wallpapers/room.jpg"
 #exec_always --no-startup-id "pkill picom"
 exec_always --no-startup-id "picom &"
 
