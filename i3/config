@@ -221,19 +221,19 @@ bindsym $mod+b exec --no-startup-id firefox &
 # 		-p <list of module parameters> \
 # 		-t <theme>
 # }
-#bar {
-#        status_command ~/.config/bumblebee-status/bumblebee-status \
-#	-m time date network network_traffic brightness shell battery \
-#	-p brightness.use_acpi=true shell.command='whoami'\
-#	-t dracula-powerline
-#
-#	position top
-#	tray_output none
-#	font pango:FiraCode Mono 10
-#}
+bar {
+        status_command ~/.config/bumblebee-status/bumblebee-status \
+	-m time date network network_traffic brightness shell battery \
+	-p brightness.use_acpi=true shell.command='whoami'\
+	-t dracula-powerline
+
+	position top
+	tray_output none
+	font pango:FiraCode Mono 10
+}
   
-#} POLYBAR
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# POLYBAR
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # i3 GAPS
 for_window [class="^.*"] border pixel 5

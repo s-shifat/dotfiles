@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 function mklink () {
-	ln -nfs ./$1/ ~/.config/$1
+	ln ./$1/ ~/.config/$1
 }
 
 
