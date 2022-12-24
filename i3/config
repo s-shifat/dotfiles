@@ -223,8 +223,8 @@ bindsym $mod+b exec --no-startup-id firefox &
 # }
 bar {
         status_command ~/.config/bumblebee-status/bumblebee-status \
-	-m time date network network_traffic brightness shell battery \
-	-p brightness.use_acpi=true shell.command='whoami'\
+	-m time date network network_traffic brightness amixer bluetooth shell battery \
+	-p brightness.use_acpi=true shell.command='whoami' \
 	-t dracula-powerline
 
 	position top
