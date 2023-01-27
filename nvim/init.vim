@@ -8,6 +8,7 @@ set shiftwidth=4
 set smarttab
 set softtabstop=4
 set mouse=a
+set encoding=UTF-8
 syntax on
 
 " set 7 lines to the cursors when moving vertically
@@ -28,6 +29,7 @@ call plug#begin()
 
 Plug 'dracula/vim', { 'name': 'dracula' } " dracula theme obviously!
 Plug 'https://github.com/vim-airline/vim-airline' " status bar
+Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 
 call plug#end()
 
@@ -39,3 +41,14 @@ inoremap jj <Esc>
 colorscheme dracula
 highlight  Normal ctermbg=none
 highlight  NonText ctermbg=none
+
+
+" ==Airline settings==
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = ''
