@@ -34,21 +34,38 @@ Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 call plug#end()
 
 
-"keymaps
-inoremap jj <Esc>
+" == General keymaps ==
 
-"Colorscheme
+" jj to escape
+inoremap jj <Esc> 
+" leader key to space
+let mapleader=" "
+
+" == General keymaps Ends ==
+
+
+" == Colorscheme Dracula ==
 colorscheme dracula
 highlight  Normal ctermbg=none
 highlight  NonText ctermbg=none
+" == Colorscheme Ends ==
 
 
-" ==Airline settings==
+" == Airline settings ==
+
+" powerline settings
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
 " airline symbols
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-"let g:airline_symbols.branch = ''
-"let g:airline_symbols.readonly = ''
-"let g:airline_symbols.linenr = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+" == Airline Ends ==
