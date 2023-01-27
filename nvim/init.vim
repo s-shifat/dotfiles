@@ -2,6 +2,12 @@
 set noswapfile
 set nu
 set rnu
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set softtabstop=4
+set mouse=a
 syntax on
 
 " set 7 lines to the cursors when moving vertically
@@ -20,7 +26,8 @@ set showmatch
 " Let the Plugin begin
 call plug#begin()
 
-Plug 'dracula/vim', { 'name': 'dracula' }
+Plug 'dracula/vim', { 'name': 'dracula' } " dracula theme obviously!
+Plug 'https://github.com/vim-airline/vim-airline' " status bar
 
 call plug#end()
 
