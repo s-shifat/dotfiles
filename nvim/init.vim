@@ -7,7 +7,7 @@ set tabstop=4
 set shiftwidth=4
 set smarttab
 set softtabstop=4
-set mouse=a
+"set mouse=a
 set encoding=UTF-8
 syntax on
 
@@ -37,9 +37,8 @@ call plug#end()
 " == General keymaps ==
 
 " jj to escape
-inoremap jj <Esc> 
-" leader key to space
 let mapleader=" "
+imap jj <Esc>
 
 " == General keymaps Ends ==
 
