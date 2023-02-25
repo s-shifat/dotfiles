@@ -29,6 +29,8 @@ vim.g.maplocalleader = " "
 --vim.keymap.set("n", "<C-l>", "<C-w>l")
 --vim.keymap.set("n", "<C-j>", "<C-w>j")
 --vim.keymap.set("n", "<C-k>", "<C-w>k")
+--
+--
 -- <leader>w {h,j,k,l} ====> w for window
 keymap("n", "<leader>wh", "<C-w>h", opts)
 keymap("n", "<leader>wj", "<C-w>j", opts)
