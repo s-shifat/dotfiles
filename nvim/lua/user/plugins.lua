@@ -25,6 +25,7 @@ if fn.empty(fn.glob(install_path)) > 0 then                                     
   print "Installing packer close and reopen Neovim..."                                          -- ===================
   vim.cmd [[packadd packer.nvim]]                                                               -- ===================
 end                                                                                             -- ===================
+
                                                                                                 -- ===================
 -- Autocommand that reloads neovim whenever you save the plugins.lua file                       -- ===================
 vim.cmd [[                                                                                      
@@ -95,8 +96,7 @@ return packer.startup(function(use)
   use "williamboman/mason.nvim" -- simple to use language server installer
   use "williamboman/mason-lspconfig.nvim" -- simple to use language server installer
   use 'jose-elias-alvarez/null-ls.nvim' -- LSP diagnostics and code actions
-
-
+  use 'williamboman/nvim-lsp-installer'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

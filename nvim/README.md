@@ -8,3 +8,6 @@
     * sudo pacman -S nodejs
     * sudo pacman -S npm
     * sudo pacman -S yarn
+6. For lsp:
+    * pip install pyright
+    * npm i -g pyright
