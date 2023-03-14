@@ -66,7 +66,7 @@ return packer.startup(function(use)
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used in lots of plugins
   --
   -- Simple plugins can be specified as strings
   use 'rstacruz/vim-closer'
@@ -97,7 +97,14 @@ return packer.startup(function(use)
   use "williamboman/mason-lspconfig.nvim" -- simple to use language server installer
   use 'jose-elias-alvarez/null-ls.nvim' -- LSP diagnostics and code actions
   use 'williamboman/nvim-lsp-installer'
-  -- Automatically set up your configuration after cloning packer.nvim
+
+  -- Telescope
+  use "nvim-telescope/telescope.nvim"
+  use 'nvim-telescope/telescope-media-files.nvim'
+
+  -- Bufferline 
+  use 'nvim-tree/nvim-web-devicons'
+  use 'akinsho/bufferline.nvim' -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()

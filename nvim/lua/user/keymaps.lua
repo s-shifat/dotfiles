@@ -50,7 +50,8 @@ keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
+keymap("n", "<leader>bd", ":bd<CR>", opts)
+-- :bd to close current buffer
 
 -- Insert --
 -- Press jk fast to enter
@@ -85,7 +86,7 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
-
-
-
+-- Telescope --
+keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>lg", ":Telescope live_grep<CR>", opts)
 

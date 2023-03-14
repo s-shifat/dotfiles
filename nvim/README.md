@@ -11,3 +11,11 @@
 6. For lsp:
     * pip install pyright
     * npm i -g pyright
+
+7. For Telescope:
+    * sudo pacman -S ripgrep
+    * sudo pacman -S chafa [Telescope media_file_extension]
+    * sudo pacman -S imagemagick [Telescope media_file_extension]
+    * sudo pacman -S ffmpegthumbnailer [Telescope media_file_extension]
+    * yay -S poppler [Telescope media_file_extension]
+    * sudo pacman -S fontpreview [Telescope media_file_extension]
