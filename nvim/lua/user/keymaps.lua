@@ -90,3 +90,6 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>lg", ":Telescope live_grep<CR>", opts)
 
+
+-- Transaperncy --
+keymap("n", "<leader>to", ":TransparentToggle<CR>", opts)

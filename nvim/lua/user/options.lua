@@ -23,7 +23,7 @@ vim.opt.splitright = true                       -- force all vertical splits to 
 vim.opt.swapfile = false                        -- no swapfile
 vim.opt.termguicolors = true                    -- set term gui colors (most terminals support this)
 vim.opt.timeoutlen = 800                       -- time to wait for a mapped sequence to complete (in milliseconds)
-vim.opt.undofile = true                         -- enable persistent undo
+vim.opt.undofile = false                         -- enable persistent undo? Nooooooooo!
 vim.opt.updatetime = 300                        -- faster completion (4000ms default)
 vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.opt.expandtab = true                        -- convert tabs to spaces
@@ -44,4 +44,6 @@ vim.cmd [[set iskeyword+=-]]
 
 -- theme DRACULA!!
 vim.cmd[[colorscheme dracula]]
+
+
 --vim.cmd[[let g:dracula_colorterm = 0]]
