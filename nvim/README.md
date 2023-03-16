@@ -19,3 +19,9 @@
     * sudo pacman -S ffmpegthumbnailer [Telescope media_file_extension]
     * yay -S poppler [Telescope media_file_extension]
     * sudo pacman -S fontpreview [Telescope media_file_extension]
+
+8. For Null-ls:
+    * npm i -g @johnnymorganz/stylua-bin
+    * pip install black
+    * npm i -g prettier
+    * Run :checkhealth to see whether there is more to add

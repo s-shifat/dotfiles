@@ -70,8 +70,13 @@ return packer.startup(function(use)
   --
   -- Simple plugins can be specified as strings
   use 'rstacruz/vim-closer'
-  -- You can alias plugin names
-  use {'dracula/vim', as = 'dracula'}
+
+  -- Dracula Color Scheme
+  --use {'dracula/vim', as = 'dracula'}
+  use "Mofiqul/dracula.nvim"
+
+  -- css color highlighter 
+  use "norcalli/nvim-colorizer.lua"
   -- install without yarn or npm
   use({
       "iamcco/markdown-preview.nvim",
@@ -97,6 +102,7 @@ return packer.startup(function(use)
   use "williamboman/mason-lspconfig.nvim" -- simple to use language server installer
   use 'jose-elias-alvarez/null-ls.nvim' -- LSP diagnostics and code actions
   use 'williamboman/nvim-lsp-installer'
+  use({ "wesleimp/stylua.nvim" })
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -105,6 +111,14 @@ return packer.startup(function(use)
   -- Transparency
   use "xiyaowong/nvim-transparent"
 
+  -- Treesitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      ts_update()
+    end,
+  }
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()

@@ -43,7 +43,7 @@ vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 
 -- theme DRACULA!!
-vim.cmd[[colorscheme dracula]]
+--vim.cmd[[colorscheme dracula]]
 
 
 --vim.cmd[[let g:dracula_colorterm = 0]]
