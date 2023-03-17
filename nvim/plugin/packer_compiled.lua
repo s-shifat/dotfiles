@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/home/shifat/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/home/shifat/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
+  },
   ["markdown-preview.nvim"] = {
     loaded = true,
     path = "/home/shifat/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
