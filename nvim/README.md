@@ -31,3 +31,16 @@ Steps:
     * pip install black
     * npm i -g prettier
     * Run :checkhealth to see whether there is more to add
+
+
+### TODO
+
+* add in plugin-config-files where needed:
+  
+```
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if not cmp_status_ok then
+  return
+end
+
+```

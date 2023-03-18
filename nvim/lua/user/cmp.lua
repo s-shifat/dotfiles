@@ -8,6 +8,12 @@ if not snip_status_ok then
   return
 end
 
+-- local cmp_autopairs_status_ok, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+-- if not cmp_autopairs_status_ok then
+--   print("cmp is not using autopairs")
+--   return
+-- end
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -129,3 +135,10 @@ cmp.setup {
     native_menu = false,
   },
 }
+
+
+-- If you want insert `(` after select function or method item
+-- cmp.event:on(
+--   'confirm_done',
+--   cmp_autopairs.on_confirm_done()
+-- )

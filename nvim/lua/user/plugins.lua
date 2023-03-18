@@ -124,6 +124,18 @@ return packer.startup(function(use)
   use {
     "ray-x/lsp_signature.nvim"
   }
+
+  -- Auto Pairs
+  use "windwp/nvim-autopairs"
+
+  -- Comments
+  use "numToStr/Comment.nvim" -- Easily comment stuff
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+
+
+
+
+
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
