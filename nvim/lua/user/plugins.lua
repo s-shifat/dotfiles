@@ -106,7 +106,7 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
-  use 'nvim-telescope/telescope-media-files.nvim'
+  use "ahmedkhalf/project.nvim"
 
   -- Transparency
   use "xiyaowong/nvim-transparent"
@@ -135,7 +135,9 @@ return packer.startup(function(use)
   -- Gisigns
   use "lewis6991/gitsigns.nvim"
 
-
+  -- Nvim Tree
+  use "nvim-tree/nvim-tree.lua"
+  use "nvim-tree/nvim-web-devicons"
 
 
   -- Put this at the end after all plugins

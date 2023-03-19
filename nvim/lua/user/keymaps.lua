@@ -44,8 +44,8 @@ keymap("n", "<C-Down>", ":resize -2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- File explorer to left
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+-- -- File explorer to left
+-- keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -95,3 +95,6 @@ keymap("n", "<leader>lg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>gj", ":Gitsigns next_hunk<CR>", opts)
 keymap("n", "<leader>gk", ":Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", opts)
+
+-- NVIM TREE File explorer to left
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
