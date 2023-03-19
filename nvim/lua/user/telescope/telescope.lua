@@ -102,3 +102,7 @@ telescope.setup {
 --    -- please take a look at the readme of the extension you want to configure
 --  },
 }
+
+-- set keymaps
+--local km = require "user.keymaps"
+--km.keymap("n", "<leader>f", ":Telescope find_files<CR>", km.opts)
