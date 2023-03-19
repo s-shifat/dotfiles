@@ -84,9 +84,14 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+
+-- Plugin specific keymaps -- 
+
 -- Telescope --
 keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>lg", ":Telescope live_grep<CR>", opts)
 
-
--- Transaperncy --
+-- Gitsigns --
+keymap("n", "<leader>gj", ":Gitsigns next_hunk<CR>", opts)
+keymap("n", "<leader>gk", ":Gitsigns prev_hunk<CR>", opts)
+keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", opts)
