@@ -57,8 +57,6 @@ keymap("n", "<leader>bd", ":bd<CR>", opts)
 -- Press jk fast to enter
 keymap("i", "jj", "<ESC>", opts)
 
-
-
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
@@ -92,4 +90,3 @@ keymap("n", "<leader>lg", ":Telescope live_grep<CR>", opts)
 
 
 -- Transaperncy --
-keymap("n", "<leader>to", ":TransparentToggle<CR>", opts)
