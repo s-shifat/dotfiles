@@ -50,7 +50,8 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<leader>bd", ":bd<CR>", opts)
+-- keymap("n", "<leader>bd", ":bd<CR>", opts)
+keymap("n", "<leader>wq", ":Bdelete<CR>", opts)
 -- :bd to close current buffer
 
 -- Insert --
@@ -98,3 +99,8 @@ keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", opts)
 
 -- NVIM TREE File explorer to left
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+
+
+-- Null-Ls | formatter
+keymap("n", "<leader>/", ":lua vim.lsp.buf.format()<CR>", opts)
+
