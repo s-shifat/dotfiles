@@ -139,6 +139,9 @@ return packer.startup(function(use)
   use "nvim-tree/nvim-tree.lua"
   use "nvim-tree/nvim-web-devicons"
 
+  -- Bufferline
+  use "akinsho/bufferline.nvim"
+  use "moll/vim-bbye"
 
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
