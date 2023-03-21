@@ -41,6 +41,9 @@ vim.opt.sidescrolloff = 8
 vim.opt.shortmess:append "c"
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
+-- vim.cmd [[set shell=/usr/bin/fish]]
+-- Set default shell to fish
+vim.opt.shell = 'fish'
 
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
