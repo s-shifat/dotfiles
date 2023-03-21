@@ -104,3 +104,6 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- Null-Ls | formatter
 keymap("n", "<leader>/", ":lua vim.lsp.buf.format()<CR>", opts)
 
+-- Toggle Terminal
+keymap("n", "<leader>t", ":ToggleTerm size=10 direction=horizontal<CR>", opts)
+
