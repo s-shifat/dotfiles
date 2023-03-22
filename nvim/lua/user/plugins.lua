@@ -149,6 +149,9 @@ return packer.startup(function(use)
 	-- Toggle Terminal
 	use("akinsho/toggleterm.nvim")
 
+  -- Lua line
+  use("nvim-lualine/lualine.nvim")
+
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

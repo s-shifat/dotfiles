@@ -24,6 +24,7 @@ dracula.setup({
     visual = "#3E4452",
     gutter_fg = "#4B5263",
     nontext = "#3B4048",
+    border = "#FF79C6"
   },
   -- show the '~' characters after the end of buffers
   show_end_of_buffer = true, -- default false
@@ -44,3 +45,4 @@ dracula.setup({
 
 -- Lua:
 vim.cmd[[colorscheme dracula]]
+-- vim.cmd "hi! VertSplit guifg=#FF79C6"
