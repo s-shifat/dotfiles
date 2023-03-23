@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/shifat/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["impatient.nvim"] = {
+    loaded = true,
+    path = "/home/shifat/.local/share/nvim/site/pack/packer/start/impatient.nvim",
+    url = "https://github.com/lewis6991/impatient.nvim"
+  },
   ["lsp_signature.nvim"] = {
     loaded = true,
     path = "/home/shifat/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",

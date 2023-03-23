@@ -152,6 +152,10 @@ return packer.startup(function(use)
   -- Lua line
   use("nvim-lualine/lualine.nvim")
 
+
+  -- impatient for fast loading
+  use 'lewis6991/impatient.nvim'
+
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
