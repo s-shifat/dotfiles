@@ -1,5 +1,5 @@
 local servers = {
-	-- "lua-language-server",
+  "lua_ls",
 	"pyright",
 	"jsonls",
 }

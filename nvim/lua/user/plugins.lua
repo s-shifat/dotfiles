@@ -128,6 +128,10 @@ return packer.startup(function(use)
 		"ray-x/lsp_signature.nvim",
 	})
 
+  -- Refactoring
+  -- Looking for a good one, haven't found yet
+
+
 	-- Auto Pairs
 	use("windwp/nvim-autopairs")
 
