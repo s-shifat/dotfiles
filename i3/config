@@ -254,6 +254,12 @@ exec_always --no-startup-id "feh --bg-fill ~/dotfiles/wallpapers/room.jpg"
 #exec_always --no-startup-id "pkill picom"
 exec_always --no-startup-id "picom &"
 
+# Clipboard w/ greenclip X rofi
+exec --no-startup-id "greenclip daemon &"
+bindsym $mod+Shift+v exec --no-startup-id ~/.config/i3/scripts/clipboard
+
+
+
 # Load dracula theme for i3 & i3-status
 #include ~/.config/i3/dracula-i3wm/dracula-i3
 #include ~/.config/i3/dracula-i3wm/dracula-i3-status
