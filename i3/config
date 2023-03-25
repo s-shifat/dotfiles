@@ -257,6 +257,7 @@ exec_always --no-startup-id "picom &"
 # Clipboard w/ greenclip X rofi
 exec --no-startup-id "greenclip daemon &"
 bindsym $mod+Shift+v exec --no-startup-id ~/.config/i3/scripts/clipboard
+bindsym $mod+$ctrl+Shift+s exec --no-startup-id "flameshot gui"
 
 
 
