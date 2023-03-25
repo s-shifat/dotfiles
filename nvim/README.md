@@ -1,11 +1,6 @@
 ## Steps
 
-Resources:
 
-  * [awesome-neovim](https://github.com/rockerBOO/awesome-neovim)
-
-
-Steps:
 1. Install neovim using the package manager
 2. Create ~/.config/nvim/init.lua and ~/.config/nvim/lua
 3. For copy-paste support: sudo pacman -S xsel
@@ -38,9 +33,14 @@ Steps:
 * add in plugin-config-files where needed:
   
 ```
-local cmp_status_ok, cmp = pcall(require, "cmp")
+local cmp_status_ok, plugin_name = pcall(require, "plugin_name")
 if not cmp_status_ok then
   return
 end
 
 ```
+
+### Resources
+
+  * [awesome-neovim](https://github.com/rockerBOO/awesome-neovim)
+
