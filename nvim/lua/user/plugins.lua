@@ -160,6 +160,9 @@ return packer.startup(function(use)
   -- impatient for fast loading
   use 'lewis6991/impatient.nvim'
 
+  -- Startup Screen | Alpha
+  use "goolord/alpha-nvim"
+
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
