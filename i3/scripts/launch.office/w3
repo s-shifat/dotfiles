@@ -1,0 +1,4 @@
+#!/bin/bash
+
+microsoft-edge-stable --new-window "file:///home/shifat/Documents/TVS/Climas/Annex 1 - Description of the action (part A).pdf" &
+thunar /home/shifat/Documents/TVS/ &

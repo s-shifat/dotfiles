@@ -228,8 +228,8 @@ bindsym $mod+b exec --no-startup-id firefox &
 # }
 bar {
         status_command ~/.config/bumblebee-status/bumblebee-status \
-	-m date time network network_traffic brightness amixer bluetooth shell battery \
-	-p brightness.use_acpi=true shell.command='whoami' time.format="🕑 %X"\
+	-m date time network network_traffic brightness amixer bluetooth cpu battery \
+	-p date.format="%a, %d/%m/%Y" brightness.use_acpi=true time.format="🕑 %X"\
 	-t dracula-powerline
 
 	position top
@@ -251,7 +251,7 @@ gaps outer 5
 # strat ups
 exec --no-startup-id xfsettingsd &
 exec_always --no-startup-id "feh --bg-fill ~/dotfiles/wallpapers/room.jpg"
-#exec_always --no-startup-id "pkill picom"
+# exec_always --no-startup-id "pkill picom &"
 exec_always --no-startup-id "picom &"
 
 # Clipboard w/ greenclip X rofi
@@ -265,3 +265,5 @@ bindsym $mod+$ctrl+Shift+s exec --no-startup-id "flameshot gui"
 #include ~/.config/i3/dracula-i3wm/dracula-i3
 #include ~/.config/i3/dracula-i3wm/dracula-i3-status
 
+# Binding for office setup
+bindsym $mod+Shift+o exec --no-startup-id ~/.config/i3/scripts/launch.office/launch.sh
