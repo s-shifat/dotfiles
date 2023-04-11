@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/shifat/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  ["FixCursorHold.nvim"] = {
+    loaded = true,
+    path = "/home/shifat/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
+    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/home/shifat/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -144,6 +149,11 @@ _G.packer_plugins = {
     path = "/home/shifat/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
   },
+  ["inc-rename.nvim"] = {
+    loaded = true,
+    path = "/home/shifat/.local/share/nvim/site/pack/packer/start/inc-rename.nvim",
+    url = "https://github.com/smjonas/inc-rename.nvim"
+  },
   ["lsp_signature.nvim"] = {
     loaded = true,
     path = "/home/shifat/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
@@ -188,6 +198,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shifat/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
+  ["nvim-lightbulb"] = {
+    loaded = true,
+    path = "/home/shifat/.local/share/nvim/site/pack/packer/start/nvim-lightbulb",
+    url = "https://github.com/kosayoda/nvim-lightbulb"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
@@ -249,6 +264,11 @@ _G.packer_plugins = {
     path = "/home/shifat/.local/share/nvim/site/pack/packer/start/stylua.nvim",
     url = "https://github.com/wesleimp/stylua.nvim"
   },
+  ["symbols-outline.nvim"] = {
+    loaded = true,
+    path = "/home/shifat/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
+    url = "https://github.com/simrat39/symbols-outline.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/shifat/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -268,6 +288,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shifat/.local/share/nvim/site/pack/packer/start/vim-closer",
     url = "https://github.com/rstacruz/vim-closer"
+  },
+  vimtex = {
+    loaded = true,
+    path = "/home/shifat/.local/share/nvim/site/pack/packer/start/vimtex",
+    url = "https://github.com/lervag/vimtex"
   }
 }
 

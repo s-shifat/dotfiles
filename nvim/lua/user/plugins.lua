@@ -42,7 +42,8 @@ if not status_ok then -- ===================
 end -- ===================
 -- ===================
 -- Have packer use a popup window                                                               -- ===================
-packer.init({ -- ===================
+packer.init({
+	-- ===================
 	display = {
 		-- ===================
 		open_fn = function() -- ===================
@@ -111,6 +112,8 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope.nvim")
 	use("ahmedkhalf/project.nvim")
 
+  -- Outline
+	use("simrat39/symbols-outline.nvim")
 	-- Transparency
 	use("xiyaowong/nvim-transparent")
 
@@ -128,9 +131,13 @@ return packer.startup(function(use)
 		"ray-x/lsp_signature.nvim",
 	})
 
-  -- Refactoring
-  -- Looking for a good one, haven't found yet
+	-- Refactoring
+	use("smjonas/inc-rename.nvim")
+	-- Looking for a good one, haven't found yet
 
+	-- Light bulb
+	use("kosayoda/nvim-lightbulb")
+	use("antoinemadec/FixCursorHold.nvim")
 
 	-- Auto Pairs
 	use("windwp/nvim-autopairs")
@@ -153,16 +160,17 @@ return packer.startup(function(use)
 	-- Toggle Terminal
 	use("akinsho/toggleterm.nvim")
 
-  -- Lua line
-  use("nvim-lualine/lualine.nvim")
+	-- Lua line
+	use("nvim-lualine/lualine.nvim")
 
+	-- impatient for fast loading
+	use("lewis6991/impatient.nvim")
 
-  -- impatient for fast loading
-  use 'lewis6991/impatient.nvim'
+	-- Startup Screen | Alpha
+	use("goolord/alpha-nvim")
 
-  -- Startup Screen | Alpha
-  use "goolord/alpha-nvim"
-
+  -- Latex Support
+  use 'lervag/vimtex'
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
