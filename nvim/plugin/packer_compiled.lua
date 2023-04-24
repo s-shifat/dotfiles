@@ -129,6 +129,12 @@ _G.packer_plugins = {
     path = "/home/shifat/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["distant.nvim"] = {
+    config = { "\27LJ\2\nt\0\0\6\0\a\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\5\0006\3\0\0'\5\3\0B\3\2\0029\3\4\3B\3\1\2=\3\6\2B\0\2\1K\0\1\0\6*\1\0\0\17chip_default\21distant.settings\nsetup\fdistant\frequire\0" },
+    loaded = true,
+    path = "/home/shifat/.local/share/nvim/site/pack/packer/start/distant.nvim",
+    url = "https://github.com/chipsenkbeil/distant.nvim"
+  },
   ["dracula.nvim"] = {
     loaded = true,
     path = "/home/shifat/.local/share/nvim/site/pack/packer/start/dracula.nvim",
@@ -178,6 +184,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shifat/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["netman.nvim"] = {
+    loaded = true,
+    path = "/home/shifat/.local/share/nvim/site/pack/packer/start/netman.nvim",
+    url = "https://github.com/miversen33/netman.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -297,6 +308,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: distant.nvim
+time([[Config for distant.nvim]], true)
+try_loadstring("\27LJ\2\nt\0\0\6\0\a\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\5\0006\3\0\0'\5\3\0B\3\2\0029\3\4\3B\3\1\2=\3\6\2B\0\2\1K\0\1\0\6*\1\0\0\17chip_default\21distant.settings\nsetup\fdistant\frequire\0", "config", "distant.nvim")
+time([[Config for distant.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
