@@ -80,6 +80,7 @@ telescope.setup {
     },
   },
 
+
 -- telescope.load_extension('project')
   -- pickers = {
     -- Default configuration for builtin pickers goes here:
