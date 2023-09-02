@@ -1,5 +1,5 @@
 configuration {
-	modes: "drun,window,run,windowcd,ssh,combi,keys,filebrowser";
+	modes: "drun,emoji,window,windowcd,ssh,combi,keys,run";
 	font: "JetBrainsMono Nerd Font 12";
 /*	location: 0;*/
 /*	yoffset: 0;*/
