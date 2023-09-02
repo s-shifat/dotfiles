@@ -12,7 +12,6 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -68,15 +67,12 @@ keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
-
 -- Visual Block --
 -- Move selected block up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-
-
 
 -- Terminal --
 -- Better terminal navigation
@@ -85,8 +81,7 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
-
--- Plugin specific keymaps -- 
+-- Plugin specific keymaps --
 
 -- Telescope --
 keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
@@ -100,10 +95,11 @@ keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", opts)
 -- NVIM TREE File explorer to left
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
-
 -- Null-Ls | formatter
 keymap("n", "<leader>/", ":lua vim.lsp.buf.format()<CR>", opts)
 
 -- Toggle Terminal
 keymap("n", "<leader>t", ":ToggleTerm size=10 direction=horizontal<CR>", opts)
 
+-- Symbols Outline
+keymap("n", "<leader>ve", ":SymbolsOutline<CR>", opts)
