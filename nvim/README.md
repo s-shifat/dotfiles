@@ -1,5 +1,8 @@
-## Steps
 
+## Current Priveiw
+![nvim-current](../assets/nvim/nvim-show-1.png)
+
+## Steps
 
 1. Install neovim using the package manager
 2. Create ~/.config/nvim/init.lua and ~/.config/nvim/lua
