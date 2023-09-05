@@ -1,5 +1,5 @@
 
-## Current Priveiw
+## Current Preview 
 ![nvim-current](../assets/nvim/nvim-show-1.png)
 
 ## Steps
