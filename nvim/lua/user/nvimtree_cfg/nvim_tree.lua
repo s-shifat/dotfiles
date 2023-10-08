@@ -7,7 +7,7 @@ end
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.api")
+-- local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.api.config")
 -- if not config_status_ok then
 --   return
 -- end
@@ -61,7 +61,7 @@ local function on_attach(bufnr)
   vim.keymap.set('n', 'J',     api.node.navigate.sibling.last,        opts('Last Sibling'))
   vim.keymap.set('n', 'K',     api.node.navigate.sibling.first,       opts('First Sibling'))
   vim.keymap.set('n', 'm',     api.marks.toggle,                      opts('Toggle Bookmark'))
-  vim.keymap.set('n', 'o',     api.node.open.edit,                    opts('Open'))
+  vim.keymap.set('n', 'o',     api.node.open.no_window_picker,                    opts('Open'))
   vim.keymap.set('n', 'O',     api.node.open.no_window_picker,        opts('Open: No Window Picker'))
   vim.keymap.set('n', 'p',     api.fs.paste,                          opts('Paste'))
   vim.keymap.set('n', 'P',     api.node.navigate.parent,              opts('Parent Directory'))
@@ -83,12 +83,12 @@ local function on_attach(bufnr)
   -- Mappings migrated from view.mappings.list
   --
   -- You will need to insert "your code goes here" for any mappings with a custom action_cb
-  vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
-  vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
-  vim.keymap.set('n', 'o', api.node.open.edit, opts('Open'))
-  vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
-  vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
-  vim.keymap.set('n', 's', api.node.open.horizontal, opts('Open: Horizontal Split'))
+  -- vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
+  -- vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
+  -- vim.keymap.set('n', 'o', api.node.open.edit, opts('Open'))
+  -- vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
+  -- vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
+  -- vim.keymap.set('n', 's', api.node.open.horizontal, opts('Open: Horizontal Split'))
 
 end
 nvim_tree.setup {
