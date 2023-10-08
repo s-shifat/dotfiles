@@ -1,0 +1,5 @@
+require("user.general")
+require("user.colorscheme_dracula_cfg")
+require("user.user_plugins")
+require("user.rnvimr_cfg")
+require("user.symbols_outline_cfg")
