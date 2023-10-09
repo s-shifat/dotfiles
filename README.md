@@ -24,5 +24,7 @@ Here's what I have so far...
 #### Neovim
 ![neovim](./assets/rice-1.png "neovim")
 
+*NOTE: Currently having issue with it. I am in the process of switching to LunarVim*
+
 #### A sample workspace
 ![sample workspace](./assets/rice-2.png "sample workspace")
