@@ -58,3 +58,8 @@ vim.opt.shell = 'fish'
 
 
 --vim.cmd[[let g:dracula_colorterm = 0]]
+--
+--
+-- Builtin Specific
+-- Nvim tree indent marker
+lvim.builtin.nvimtree.setup.renderer.indent_markers.enable = true

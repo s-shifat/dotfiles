@@ -2,7 +2,7 @@
 
 local dracula = require("dracula")
 dracula.setup({
-  -- customize dracula color palette
+  -- customize Dracula color palette
   colors = {
     bg = "#282A36",
     fg = "#F8F8F2",
@@ -58,9 +58,10 @@ dracula.setup({
 -- Set the colorscheme
 -- vim.cmd[[colorscheme dracula]]
 lvim.colorscheme = "dracula"
--- lvim.transparent_window = false
+lvim.transparent_window = false
 
 
 
 -- Set dracula for lualine too!
+-- lvim.builtin.lualine.style = "dracula-nvim"
 lvim.builtin.lualine.options.theme = "dracula-nvim"
