@@ -27,4 +27,18 @@ lvim.plugins = {
     end,
   },
 
+  -- Latex plugin
+  -- latexmk needs to be installed
+  -- default pdf viewer is onkular
+  -- Might need it later in tex documents -|
+  --  %! TeX root: ./main.tex
+  {
+    'lervag/vimtex'
+  },
+
+  -- gitignore generator
+  {
+    "wintermute-cell/gitignore.nvim"
+  }
+
 }

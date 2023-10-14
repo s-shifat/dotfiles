@@ -58,8 +58,24 @@ vim.opt.shell = 'fish'
 
 
 --vim.cmd[[let g:dracula_colorterm = 0]]
---
---
+
+
 -- Builtin Specific
+
 -- Nvim tree indent marker
 lvim.builtin.nvimtree.setup.renderer.indent_markers.enable = true
+
+-- Nvim.project
+lvim.builtin.project.patterns = {
+  -- defaults
+  ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json",
+  -- Project Specific -> I have my projects under a directory named "projects"
+  ">projects",
+  -- latex specific
+  -- Generally all my latex docs are in "Latex-docs" directory
+  ">Latex-docs",
+  -- "main.tex",
+  -- Python specific
+  -- "main.py", "venv",
+}
+

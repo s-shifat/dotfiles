@@ -1,5 +1,8 @@
 require("user.general")
 require("user.colorscheme_dracula_cfg")
+require("luasnip.loaders.from_lua").lazy_load({paths = "~/.config/lvim/custom-snippets/"})
 require("user.user_plugins")
 require("user.rnvimr_cfg")
 require("user.symbols_outline_cfg")
+require("user.vimtex_cfg")
+require("user.gitignore_cfg")
