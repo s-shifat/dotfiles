@@ -12,6 +12,7 @@
 # setting win key as mod
 set $mod Mod4
 set $alt Mod1
+set $alt_R Mod2
 set $ctrl Control
 set $shift Shift
 set $tab Tab
@@ -145,6 +146,38 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+set $ws11 "11"
+
+# assign workspaces to screens
+# Monitor names taken from running `xrandar` in the terminal
+# Currently:
+# eDP-1 : Laptop Screen
+# DP-1 : External Monitor
+
+# When, external monitor is attached
+workspace $ws1 output DP-1
+workspace $ws2 output DP-1
+workspace $ws3 output DP-1
+workspace $ws4 output DP-1
+workspace $ws5 output DP-1
+workspace $ws6 output DP-1
+workspace $ws7 output DP-1
+workspace $ws8 output DP-1
+workspace $ws9 output DP-1
+workspace $ws10 output DP-1
+
+# When, external monitor is not attached
+# workspace $ws1 output eDP-1
+# workspace $ws2 output eDP-1
+# workspace $ws3 output eDP-1
+# workspace $ws4 output eDP-1
+# workspace $ws5 output eDP-1
+# workspace $ws6 output eDP-1
+# workspace $ws7 output eDP-1
+# workspace $ws8 output eDP-1
+# workspace $ws9 output eDP-1
+# workspace $ws10 output eDP-1
+
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -157,6 +190,7 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
+# bindsym $mod+$ctrl+0 workspace number $ws11
 
 # move around workspaces
 bindsym $mod+$tab workspace next
