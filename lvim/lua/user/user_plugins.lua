@@ -39,6 +39,11 @@ lvim.plugins = {
   -- gitignore generator
   {
     "wintermute-cell/gitignore.nvim"
+  },
+
+  -- vim tmux navigator
+  {
+    "christoomey/vim-tmux-navigator"
   }
 
 }
