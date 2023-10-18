@@ -1,6 +1,5 @@
 # tmux tmp files
 tmux/plugins/tpm/
-tmux
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
