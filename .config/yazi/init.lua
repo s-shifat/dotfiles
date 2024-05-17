@@ -66,4 +66,4 @@ function Status:render(area)
 end
 
 -- Plugins
-require("starship"):setup()
+-- require("starship"):setup()
