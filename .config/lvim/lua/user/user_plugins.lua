@@ -13,10 +13,10 @@ lvim.plugins = {
 
 
   -- Ranger Plugin
-  {
-    "kevinhwang91/rnvimr",
-      cmd = "RnvimrToggle",
-  },
+  -- {
+  --   "kevinhwang91/rnvimr",
+  --     cmd = "RnvimrToggle",
+  -- },
 
   -- Symbols Outline | variable explorer
   {
