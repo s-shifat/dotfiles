@@ -5,6 +5,12 @@ return {
     {trig = "hi"},
     { t("Hello, world") }
   ),
+
+  -- string "Hello, world"
+  require("luasnip").snippet(
+    {trig = "texdoc"},
+    { t("yooo") }
+  ),
 }
 
 

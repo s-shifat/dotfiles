@@ -67,6 +67,13 @@ lvim.plugins = {
     config = function(_, opts) require("markmap").setup(opts) end
   },
 
+
+  -- Scientific Notes | Markdown
+  {
+    "jbyuki/nabla.nvim"
+
+  },
+
   -- A nice color picker and highlighter
   {
     "uga-rosa/ccc.nvim"
