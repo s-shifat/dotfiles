@@ -19,3 +19,16 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
 	PATH="$HOME/.local/bin:$PATH"
 fi
+
+# PATH Example
+export PATH="$HOME/.local/bin:\
+$HOME/.cargo/bin:\
+$HOME/.npm-global/bin:\
+$HOME/.yarn/bin:\
+$HOME/.config/yarn/global/node_modules/.bin:\
+$HOME/.local/share/gem/ruby/3.0.0/bin:\
+$HOME/.cargo/env:\
+/root/.local/share/gem/ruby/3.0.0/bin:\
+/usr/local/bin:\
+/usr/share/nvm/init-nvm.sh:\
+$PATH"
