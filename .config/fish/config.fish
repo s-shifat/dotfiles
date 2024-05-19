@@ -24,9 +24,9 @@ if status is-interactive
 end
 
 #list
-alias ls="ls --color=auto"
-alias la="ls -a"
-alias ll="ls -alFh"
+# alias ls="ls --color=auto"
+# alias la="ls -a"
+# alias ll="ls -alFh"
 alias l="ls"
 alias l.="ls -A | egrep '^\.'"
 
@@ -62,6 +62,7 @@ alias l="ls -l"
 alias la="ls -a"
 alias lla="ls -la"
 alias lt="ls --tree"
+alias ll="ls -al"
 
 function cd
     builtin cd $argv; and ls
@@ -80,7 +81,7 @@ end
 
 # User paths
 set -e fish_user_paths
-set -U fish_user_paths $HOME/.bin $HOME/.local/bin $HOME/Applications $HOME/my-scripts $fish_user_paths
+set -U fish_user_paths $HOME/.bin $HOME/.local/bin $HOME/Applications $HOME/my-scripts $fish_user_paths $HOME/.config/yarn/global/node_modules/.bin
 
 # Sets the terminal type for proper colors
 set TERM "xterm-256color"
