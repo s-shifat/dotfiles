@@ -184,7 +184,43 @@ end
 --   require('render-markdown').toggle()
 --   show_image_full_doc()
 --   -- require"nabla".toggle_virt()
--- end
+--
+--
+--
+--
+-- Evaluate code blocks!
+
+require 'mdeval'.setup({
+  -- Don't ask before executing code blocks
+  require_confirmation=false,
+  -- Change code blocks evaluation options.
+  eval_options = {
+    -- Set custom configuration for C++
+    cpp = {
+      command = {"clang++", "-std=c++20", "-O0"},
+      default_header = [[
+    #include <iostream>
+    #include <vector>
+    using namespace std;
+      ]]
+    },
+    -- Add new configuration for Racket
+    racket = {
+      command = {"racket"},        -- Command to run interpreter
+      language_code = "racket",    -- Markdown language code
+      exec_type = "interpreted",   -- compiled or interpreted
+      extension = "rkt",           -- File extension for temporary files
+    },
+    python = {
+      command = {"$HOME/venvs/venvDS/bin/python"},        -- Command to run interpreter
+      language_code = "python",    -- Markdown language code
+      exec_type = "interpreted",   -- compiled or interpreted
+      extension = "py",           -- File extension for temporary files
+    },
+  },
+})
+vim.g.markdown_fenced_languages = {'python', 'cpp'}
+
 
 -- Keybindings
 
@@ -212,5 +248,7 @@ ileader["m"] = {
 
   T = {"Table of Content"},
   Tn = {"<cmd>TOC<cr>", "Numbered TOC"},
-  Tl = {"<cmd>TOCList<cr>", "List TOC"}
+  Tl = {"<cmd>TOCList<cr>", "List TOC"},
+
+  r = {"<cmd>lua require 'mdeval'.eval_code_block()<CR>", "Execute Cell"}
 }

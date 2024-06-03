@@ -3,10 +3,16 @@ lvim.builtin.treesitter.ensure_installed = {
 }
 
 local formatters = require "lvim.lsp.null-ls.formatters"
+
+-- :Mason Install black
 formatters.setup { { name = "black" } }
 
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup { { command = "flake8", args = {"--ignore=E203"}, filetypes = { "python" } } }
+-- local linters = require "lvim.lsp.null-ls.linters"
+-- linters.setup { { command = "ruff", filetypes = { "python" } } }
+
+-- Configure `ruff-lsp`.
+-- See: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
+-- For the default config, along with instructions on how to customize the settings
 
 require('swenv').setup({
   post_set_venv = function()

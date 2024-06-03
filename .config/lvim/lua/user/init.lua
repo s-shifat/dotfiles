@@ -9,3 +9,7 @@ require("user.gitignore_cfg")
 require("user.ide_cfg")
 require("user.image_support_cfg")
 require("user.project_cfg")
+
+-- Core Plugins List: 
+-- https://www.lunarvim.org/docs/features/core-plugins-list
+

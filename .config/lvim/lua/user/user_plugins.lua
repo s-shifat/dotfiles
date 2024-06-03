@@ -45,12 +45,21 @@ lvim.plugins = {
   -- Markdown Preview
   {
     "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = "cd app && npm install",
-    ft = "markdown",
-    config = function()
-      vim.g.mkdp_auto_start = 1
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
     end,
+    ft = { "markdown" },
   },
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   build = "cd app && npm install",
+  --   ft = "markdown",
+  --   config = function()
+  --     vim.g.mkdp_auto_start = 1
+  --   end,
+  -- },
   -- Markdown: edit injected language trees with correct filetype in a floating window. 
   {
     'AckslD/nvim-FeMaco.lua',
@@ -100,11 +109,14 @@ lvim.plugins = {
   -- Markdown: Vim Table Mode
   {'dhruvasagar/vim-table-mode'},
 
-  -- Latex plugin
+  -- Markdown: Markdown Code Block Evaluation
+  {'jubnzv/mdeval.nvim'},
+
+  -- latex plugin
   -- latexmk needs to be installed
   -- default pdf viewer is onkular
-  -- Might need it later in tex documents -|
-  --  %! TeX root: ./main.tex
+  -- might need it later in tex documents -|
+  --  %! tex root: ./main.tex
   {
     'lervag/vimtex'
   },
