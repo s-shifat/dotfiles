@@ -28,37 +28,40 @@ local ms = ls.multi_snippet
 local k = require("luasnip.nodes.key_indexer").new_key
 
 
---  __  __         ____                                 _ 
+--  __  __         ____                                 _
 -- |  \/  |_   _  |  _ \ ___ _ __ ___  ___  _ __   __ _| |
 -- | |\/| | | | | | |_) / _ \ '__/ __|/ _ \| '_ \ / _` | |
 -- | |  | | |_| | |  __/  __/ |  \__ \ (_) | | | | (_| | |
 -- |_|  |_|\__, | |_|   \___|_|  |___/\___/|_| |_|\__,_|_|
---         |___/                                          
---  ____        _                  _       
--- / ___| _ __ (_)_ __  _ __   ___| |_ ___ 
+--         |___/
+--  ____        _                  _
+-- / ___| _ __ (_)_ __  _ __   ___| |_ ___
 -- \___ \| '_ \| | '_ \| '_ \ / _ \ __/ __|
 --  ___) | | | | | |_) | |_) |  __/ |_\__ \
 -- |____/|_| |_|_| .__/| .__/ \___|\__|___/
---               |_|   |_|                 
+--               |_|   |_|
 --
 -- By typing the trigger suggestions will be shown
 -- To move between place holders ($1, $2 etc.) use Tab and Shift+Tab
 return {
-  -- A snippet that expands the trigger "hi" into the
-  -- string "Hello, world"
-  s(
-    { trig = "hi" },
-    { t("Hello, world") }
-  ),
 
-  -- string "Hello, world"
-  s(
-    { trig = "texdoc" },
-    { t("yooo") }
-  ),
-  s("trigger", {
-    t({ "After expanding, the cursor is here ->" }), i(1),
-    t({ "Ami", "After jumping forward once, cursor is here ->", "Eikhane:" }), i(2),
-    t({ "Theke     Jibon", "After jumping once more, the snippet is exited there ->" }), i(0),
-  })
+  -- Starter for Data Science Scripts
+  s("ds", {
+      t({
+        "import numpy as np",
+        "import pandas as pd",
+        "import matplotlib.pyplot as plt",
+        "",
+        "",
+        "df = pd.read_csv(\""
+      }), i(1),
+      t({ "\")", "" }),
+      t({
+      "print(df)",
+      "print(\"Data Type Information:\")",
+      "print(df.info())",
+      ""
+    }),
+    }
+  )
 }

@@ -28,9 +28,5 @@ require('swenv').setup({
 local ileader = require("user.ide_cfg.keybindigs_ide")
 ileader["p"] = {
   name = "Python",
-  e = {"<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose Env"},
+  e = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose Env" },
 }
-
-
-
-
