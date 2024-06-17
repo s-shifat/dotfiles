@@ -31,4 +31,5 @@ $HOME/.cargo/env:\
 /root/.local/share/gem/ruby/3.0.0/bin:\
 /usr/local/bin:\
 /usr/share/nvm/init-nvm.sh:\
+/opt/rocm/bin:\
 $PATH"

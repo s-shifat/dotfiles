@@ -81,7 +81,7 @@ end
 
 # User paths
 set -e fish_user_paths
-set -U fish_user_paths $HOME/.bin $HOME/.local/bin $HOME/Applications $HOME/my-scripts $fish_user_paths $HOME/.config/yarn/global/node_modules/.bin
+set -U fish_user_paths $HOME/.bin $HOME/.local/bin $HOME/Applications $HOME/my-scripts $fish_user_paths $HOME/.config/yarn/global/node_modules/.bin /opt/rocm/bin/
 
 # Sets the terminal type for proper colors
 set TERM "xterm-256color"
