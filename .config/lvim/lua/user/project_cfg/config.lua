@@ -3,7 +3,8 @@
 
 lvim.builtin.project.patterns = {
   -- General
-   ".git",
+  "lazy-lock.json",
+  ".git",
   "_darcs",
   ".hg",
   ".bzr",
@@ -14,9 +15,9 @@ lvim.builtin.project.patterns = {
   -- Python Specific
   "pyproject.toml",
   "main.py",
-  -- To specify the root has a certain directory as its direct ancestor / parent 
+  -- To specify the root has a certain directory as its direct ancestor / parent
   -- (useful when you put working projects in a common directory), prefix it with >:
   ">projects",
   ">Documents",
-  ">notes"
+  -- ">notes"
 }

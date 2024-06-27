@@ -20,6 +20,9 @@ require('swenv').setup({
   end,
 })
 
+
+
+
 -- lvim.builtin.which_key.mappings["C"] = {
 --   name = "Python",
 --   c = {"<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose Env"},
@@ -29,4 +32,5 @@ local ileader = require("user.ide_cfg.keybindigs_ide")
 ileader["p"] = {
   name = "Python",
   e = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose Env" },
+  p = {"<cmd>QuartoPreview<cr>", "Privew as Notebook"}
 }

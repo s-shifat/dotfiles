@@ -151,4 +151,84 @@ lvim.plugins = {
     "stevearc/dressing.nvim"
   },
 
+  -- Juypter Notebook Specifics
+  -- https://github.com/benlubas/molten-nvim/blob/main/docs/Notebook-Setup.md
+  -- Interactive code running with juypter kernel
+  -- output imports/exports
+  -- {
+  --   "benlubas/molten-nvim",
+  --   version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
+  --   build = ":UpdateRemotePlugins",
+  --   init = function()
+  --     -- this is an example, not a default. Please see the readme for more configuration options
+  --     vim.g.molten_output_win_max_height = 12
+  --   end,
+  -- },
+  {
+    "jpalardy/vim-slime"
+  },
+  -- provide lsp features and code completion source
+  {
+    'jmbuhr/otter.nvim'
+  },
+
+  -- code cell running
+  {
+    'quarto-dev/quarto-nvim',
+    'jmbuhr/otter.nvim',
+    'hrsh7th/nvim-cmp',
+    'neovim/nvim-lspconfig',
+    'nvim-treesitter/nvim-treesitter'
+  },
+
+  -- Notebook conversion
+  {
+    "GCBallesteros/jupytext.nvim",
+  },
+
+  -- Easy navigation
+  {
+    "nvimtools/hydra.nvim"
+  },
+
+  {
+    "rcarriga/nvim-notify"
+  },
+  {
+    "kiyoon/jupynium.nvim",
+    build = "pip3 install --user .",
+    -- build = "conda run --no-capture-output -n jupynium pip install .",
+    -- enabled = vim.fn.isdirectory(vim.fn.expand "~/miniconda3/envs/jupynium"),
+  },
+
+  -- Obsidian
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",  -- recommended, use latest release instead of latest commit
+    lazy = true,
+    ft = "markdown",
+    -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+    event = {
+      -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+      -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
+      "BufReadPre " .. vim.fn.expand "~" .. "/notes/**.md",
+      "BufNewFile " .. vim.fn.expand "~" .. "/notes/**.md",
+    },
+    dependencies = {
+      -- Required.
+      "nvim-lua/plenary.nvim",
+
+      -- see below for full list of optional dependencies 👇
+    },
+    opts = {
+      workspaces = {
+        {
+          name = "notes",
+          path = "~/notes",
+        }
+      },
+      -- see below for full list of options 👇
+    },
+  },
+
 }
