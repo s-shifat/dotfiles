@@ -30,6 +30,13 @@ end
 alias l="ls"
 alias l.="ls -A | egrep '^\.'"
 
+# Alias for going to notes
+alias n="cd ~/notes/"
+alias p="cd ~/projects/"
+alias d="cd ~/Documents/"
+
+
+
 if type -q exa
     alias ls="exa"
     alias xls="exa -a --icons --color=always --group-directories-first"

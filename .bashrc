@@ -10,6 +10,11 @@ alias grep='grep --color=auto'
 alias la='ls -Alh' # show hidden files
 PS1='[\u@\h \W]\$ '
 
+# Alias for going to notes
+alias n="cd ~/notes/"
+alias p="cd ~/projects/"
+alias d="cd ~/Documents/"
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
 	PATH="$HOME/bin:$PATH"
@@ -33,3 +38,5 @@ $HOME/.cargo/env:\
 /usr/share/nvm/init-nvm.sh:\
 /opt/rocm/bin:\
 $PATH"
+
+source ~/fzf_rc.sh
