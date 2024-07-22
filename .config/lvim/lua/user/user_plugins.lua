@@ -21,16 +21,12 @@ lvim.plugins = {
   },
 
 
-  -- Ranger Plugin
-  -- {
-  --   "kevinhwang91/rnvimr",
-  --     cmd = "RnvimrToggle",
-  -- },
 
   -- Symbols Outline | variable explorer
   {
   "simrat39/symbols-outline.nvim",
   },
+
 
 -- image support for neovim/lvim
   -- To make it work install manually on local system
@@ -42,6 +38,8 @@ lvim.plugins = {
       -- ...
     end
   },
+
+
   -- Markdown Preview
   {
     "iamcco/markdown-preview.nvim",
@@ -52,14 +50,8 @@ lvim.plugins = {
     end,
     ft = { "markdown" },
   },
-  -- {
-  --   "iamcco/markdown-preview.nvim",
-  --   build = "cd app && npm install",
-  --   ft = "markdown",
-  --   config = function()
-  --     vim.g.mkdp_auto_start = 1
-  --   end,
-  -- },
+
+
   -- Markdown: edit injected language trees with correct filetype in a floating window. 
   {
     'AckslD/nvim-FeMaco.lua',
@@ -141,6 +133,11 @@ lvim.plugins = {
     'jbyuki/nabla.nvim'
   },
 
+  -- Spell checking
+  {
+    'dpelle/vim-LanguageTool'
+  },
+
   -- Python IDE: environments
   {
      "AckslD/swenv.nvim"
@@ -167,19 +164,19 @@ lvim.plugins = {
   {
     "jpalardy/vim-slime"
   },
-  -- provide lsp features and code completion source
-  {
-    'jmbuhr/otter.nvim'
-  },
+  -- -- provide lsp features and code completion source
+  -- {
+  --   'jmbuhr/otter.nvim'
+  -- },
 
-  -- code cell running
-  {
-    'quarto-dev/quarto-nvim',
-    'jmbuhr/otter.nvim',
-    'hrsh7th/nvim-cmp',
-    'neovim/nvim-lspconfig',
-    'nvim-treesitter/nvim-treesitter'
-  },
+  -- -- code cell running
+  -- {
+  --   'quarto-dev/quarto-nvim',
+  --   'jmbuhr/otter.nvim',
+  --   'hrsh7th/nvim-cmp',
+  --   'neovim/nvim-lspconfig',
+  --   'nvim-treesitter/nvim-treesitter'
+  -- },
 
   -- Notebook conversion
   {
@@ -194,11 +191,16 @@ lvim.plugins = {
   {
     "rcarriga/nvim-notify"
   },
+
+  -- Jupyter Notebook Environment
   {
     "kiyoon/jupynium.nvim",
     build = "pip3 install --user .",
     -- build = "conda run --no-capture-output -n jupynium pip install .",
     -- enabled = vim.fn.isdirectory(vim.fn.expand "~/miniconda3/envs/jupynium"),
+  },
+  {
+    'Vigemus/iron.nvim'
   },
 
   -- Obsidian

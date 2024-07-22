@@ -1,3 +1,5 @@
+vim.opt.conceallevel = 2
+
 local obsidian = require("obsidian")
 
 local config = {
@@ -17,7 +19,7 @@ local config = {
 
   -- Alternatively - and for backwards compatibility - you can set 'dir' to a single path instead of
   -- 'workspaces'. For example:
-  -- dir = "~/vaults/work",
+  dir = "~/notes",
 
   -- Optional, if you keep notes in a specific subdirectory of your vault.
   notes_subdir = "quick-notes",
@@ -44,7 +46,7 @@ local config = {
     -- Set to false to disable completion.
     nvim_cmp = true,
     -- Trigger completion at 2 chars.
-    min_chars = 2,
+    min_chars = 1,
   },
 
   -- Optional, configure key mappings. These are the defaults. If you don't want to set any keymappings this
@@ -85,6 +87,7 @@ local config = {
     -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
     -- In this case a note with the title 'My new note' will be given an ID that looks
     -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
+    -- os.date("%m_%d_%Y-%H_%M_%S")
     local suffix = ""
     if title ~= nil then
       -- If title is given, transform it into valid file name.
@@ -95,7 +98,7 @@ local config = {
         suffix = suffix .. string.char(math.random(65, 90))
       end
     end
-    return tostring(os.time()) .. "-" .. suffix
+    return suffix .. "-" .. tostring(os.date("%m_%d_%Y-%H_%M_%S"))
   end,
 
   -- Optional, customize how note file names are generated given the ID, target directory, and title.
@@ -130,7 +133,8 @@ local config = {
   ---@return string
   image_name_func = function()
     -- Prefix image names with timestamp.
-    return string.format("%s-", os.time())
+    -- return string.format("%s-", os.time())
+    return string.format("%s-", os.date("%m_%d_%Y-%H_%M_%S"))
   end,
 
   -- Optional, boolean or a function that takes a filename and returns a boolean.
@@ -172,8 +176,9 @@ local config = {
   ---@param url string
   follow_url_func = function(url)
     -- Open the URL in the default web browser.
-    vim.fn.jobstart({"open", url})  -- Mac OS
+    -- vim.fn.jobstart({"open", url})  -- Mac OS
     -- vim.fn.jobstart({"xdg-open", url})  -- linux
+    os.execute("xdg-open " .. url)
   end,
 
   -- Optional, set to true if you use the Obsidian Advanced URI plugin.
@@ -212,35 +217,36 @@ local config = {
   open_notes_in = "current",
 
   -- Optional, define your own callbacks to further customize behavior.
-  callbacks = {
-    -- Runs at the end of `require("obsidian").setup()`.
-    ---@param client obsidian.Client
-    post_setup = function(client) end,
+  -- callbacks = {
+  --   -- Runs at the end of `require("obsidian").setup()`.
+  --   ---@param client obsidian.Client
+  --   post_setup = function(client) end,
 
-    -- Runs anytime you enter the buffer for a note.
-    ---@param client obsidian.Client
-    ---@param note obsidian.Note
-    enter_note = function(client, note) end,
+  --   -- Runs anytime you enter the buffer for a note.
+  --   ---@param client obsidian.Client
+  --   ---@param note obsidian.Note
+  --   enter_note = function(client, note) end,
 
-    -- Runs anytime you leave the buffer for a note.
-    ---@param client obsidian.Client
-    ---@param note obsidian.Note
-    leave_note = function(client, note) end,
+  --   -- Runs anytime you leave the buffer for a note.
+  --   ---@param client obsidian.Client
+  --   ---@param note obsidian.Note
+  --   leave_note = function(client, note) end,
 
-    -- Runs right before writing the buffer for a note.
-    ---@param client obsidian.Client
-    ---@param note obsidian.Note
-    pre_write_note = function(client, note) end,
+  --   -- Runs right before writing the buffer for a note.
+  --   ---@param client obsidian.Client
+  --   ---@param note obsidian.Note
+  --   pre_write_note = function(client, note) end,
 
-    -- Runs anytime the workspace is set/changed.
-    ---@param client obsidian.Client
-    ---@param workspace obsidian.Workspace
-    post_set_workspace = function(client, workspace) end,
-  },
+  --   -- Runs anytime the workspace is set/changed.
+  --   ---@param client obsidian.Client
+  --   ---@param workspace obsidian.Workspace
+  --   post_set_workspace = function(client, workspace) end,
+  -- },
 
   -- Optional, configure additional syntax highlighting / extmarks.
   -- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
   ui = {
+    -- enable = true,  -- set to false to disable all additional syntax features
     enable = true,  -- set to false to disable all additional syntax features
     update_debounce = 200,  -- update delay after a text change (in milliseconds)
     max_file_length = 5000,  -- disable UI features for files with more than this many lines
@@ -253,14 +259,14 @@ local config = {
       ["~"] = { char = "󰰱 ", hl_group = "ObsidianTilde" },
       ["!"] = { char = " ", hl_group = "ObsidianImportant" },
       -- Replace the above with this if you don't have a patched font:
-      -- [" "] = { char = "☐", hl_group = "ObsidianTodo" },
-      -- ["x"] = { char = "✔", hl_group = "ObsidianDone" },
+      -- [" "] = { char = "☐  ", hl_group = "ObsidianTodo" },
+      -- ["x"] = { char = "✔  ", hl_group = "ObsidianDone" },
 
       -- You can also add more custom ones...
     },
     -- Use bullet marks for non-checkbox lists.
-    bullets = { char = "•", hl_group = "ObsidianBullet" },
-    external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
+    bullets = { char = "•  ", hl_group = "ObsidianBullet" },
+    external_link_icon = { char = "  ", hl_group = "ObsidianExtLinkIcon" },
     -- Replace the above with this if you don't have a patched font:
     -- external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
     reference_text = { hl_group = "ObsidianRefText" },
@@ -277,7 +283,7 @@ local config = {
       ObsidianBullet = { bold = true, fg = "#89ddff" },
       ObsidianRefText = { underline = true, fg = "#c792ea" },
       ObsidianExtLinkIcon = { fg = "#c792ea" },
-      ObsidianTag = { italic = true, fg = "#89ddff" },
+      ObsidianTag = { italic = true, fg = "#89ddff", bg = "#00FFFF" },
       ObsidianBlockID = { italic = true, fg = "#89ddff" },
       ObsidianHighlightText = { bg = "#75662e" },
     },
@@ -306,6 +312,7 @@ local config = {
 obsidian.setup(config)
 
 
+
 --  _  __          _     _           _ _                 
 -- | |/ /___ _   _| |__ (_)_ __   __| (_)_ __   __ _ ___ 
 -- | ' // _ \ | | | '_ \| | '_ \ / _` | | '_ \ / _` / __|
@@ -316,25 +323,29 @@ obsidian.setup(config)
 local obsidian_leader = require("user.obsidian_cfg.keybindings_obsidian")
 
 -- Search Notes by content
+obsidian_leader["o"] = {"<cmd>set conceallevel=0<cr>", "Fix Conceal Levels"}
+
+-- Search Notes by content
 obsidian_leader["s"] = {"<cmd>ObsidianSearch<cr>", "Grep Notes"}
 
 -- Search Notes by file name
 obsidian_leader["f"] = {"<cmd>ObsidianQuickSwitch<cr>", "Search Notes"}
 
 -- Create a Today Note
-obsidian_leader["t"] = {"<cmd>ObsidianToday ", "Create a Note for today or ofset"}
+obsidian_leader["t"] = {":ObsidianToday ", "Create a Note for today or ofset"}
 
 -- Search in daily notes
-obsidian_leader["d"] = {"<cmd>ObsidianDailies ", "Search in daily notes"}
+obsidian_leader["d"] = {":ObsidianDailies ", "Search in daily notes"}
 
 -- Create a New Note
-obsidian_leader["n"] = {"<cmd>ObsidianNew ", "Create a New Note"}
+obsidian_leader["N"] = {":ObsidianNew ", "Create a New Note"}
+obsidian_leader["n"] = {"<cmd>ObsidianQuickSwitch<cr>", "Create a New Note"}
 
 -- Rename Note
-obsidian_leader["r"] = {"<cmd>ObsidianRename ", "Rename Note"}
+obsidian_leader["r"] = {":ObsidianRename ", "Rename Note"}
 
 -- Paste Image from Clipboard
-obsidian_leader["p"] = {"<cmd>ObsidianPasteImg ", "Paste Image"}
+obsidian_leader["p"] = {":ObsidianPasteImg ", "Paste Image"}
 
 
 -- Paste Image from Clipboard
@@ -347,5 +358,6 @@ obsidian_leader["l"] = {
   b = {"<cmd>ObsidianBackLinks<cr>", "List Backlinks"},
   l = {"<cmd>ObsidianLink<cr>", "Link Selected Text"},
   L = {"<cmd>ObsidianLinkNew<cr>", "Add New Link to Selected Text"},
-  s = {"<cmd>ObsidianLinkNew<cr>", "Add New Link to Selected Text"},
+  s = {"<cmd>ObsidianLinks<cr>", "List all the links"},
 }
+

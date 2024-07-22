@@ -14,6 +14,7 @@ vim.g.bullets_enabled_file_types = {
 
 
 
+
 -- https://medium.com/@chrisatmachine/lunarvim-improve-markdown-editing-with-marksman-739d06c73a26
 -- Setup LSP
 require("lvim.lsp.manager").setup("marksman")
@@ -24,6 +25,7 @@ require("lvim.lsp.manager").setup("marksman")
 -- Settings for Lvim Markdown Privew
 require('render-markdown').setup({
     -- Configure whether Markdown should be rendered by default or not
+    -- start_enabled = true,
     start_enabled = true,
     -- Maximum file size (in MB) that this plugin will attempt to render
     -- Any file larger than this will effectively be ignored
@@ -73,16 +75,19 @@ require('render-markdown').setup({
     -- All other modes will be uneffected by this plugin
     render_modes = { 'n', 'c' },
     -- Characters that will replace the # at the start of headings
-    headings = { '󰲡 ', '󰲣 ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },
+  --    󰬺 
+    -- headings = { '󰲡 ', '󰲣 ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },
+    headings = { ' ', ' ', ' ', '', ' ', ' ' },
     -- Character to use for the horizontal break
     dash = '—',
     -- Character to use for the bullet points in lists
-    bullets = { '●', '○', '◆', '◇' },
+    bullets = { '●    ', '○    ', '◆    ', '◇    ' },
     checkbox = {
         -- Character that will replace the [ ] in unchecked checkboxes
-        unchecked = '󰄱 ',
+        unchecked = ' ',
         -- Character that will replace the [x] in checked checkboxes
-        checked = ' ',
+        -- checked = ' ⊏⊐ |_  ',
+        checked = ' ',
     },
     -- Character that will replace the > at the start of block quotes
     quote = '┃',
@@ -92,6 +97,7 @@ require('render-markdown').setup({
         default = vim.opt.conceallevel:get(),
         -- conceallevel used for buffer when being rendered
         rendered = 3,
+        -- rendered = 0,
     },
     -- Add a line above and below tables to complete look, ends up like a window
     fat_tables = true,

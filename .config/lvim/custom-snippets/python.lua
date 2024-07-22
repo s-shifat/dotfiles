@@ -63,5 +63,29 @@ return {
       ""
     }),
     }
-  )
+  ),
+
+  -- Jupyter NoteBook | Jupynium Specific
+  -- Jupynium -> Start Python Code Cell
+  s("c", {
+      t({
+      "# %%",
+      ""
+      }), i(1),
+    }
+  ),
+
+  -- Jupynium -> Start Markdown Cell
+  s("md", {
+      t({
+      "# %% [md]",
+      "\"\"\"",
+      "",
+      }), i(1),
+      t({
+      "",
+      "\"\"\"",
+    })
+    }
+  ),
 }

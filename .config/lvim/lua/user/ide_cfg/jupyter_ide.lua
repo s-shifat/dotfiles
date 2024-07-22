@@ -21,40 +21,40 @@
 -- vim.g.molten_virt_lines_off_by_1 = true
 
 
--- Sample Config for quarto-nvim
-local quarto = require("quarto")
-quarto.setup({
-    lspFeatures = {
-        -- NOTE: put whatever languages you want here:
-        languages = {"python"},
-        chunks = "all",
-        diagnostics = {
-            enabled = true,
-            triggers = { "BufWritePost" },
-        },
-        completion = {
-            enabled = true,
-        },
-    },
-    keymap = {
-        -- NOTE: setup your own keymaps:
-        hover = "jH",
-        definition = "jgd",
-        rename = "<leader>jrn",
-        references = "jgr",
-        format = "<leader>jgf",
-    },
-    codeRunner = {
-        enabled = true,
-        default_method = "slime",
-    },
-})
+-- -- Sample Config for quarto-nvim
+-- local quarto = require("quarto")
+-- quarto.setup({
+--     lspFeatures = {
+--         -- NOTE: put whatever languages you want here:
+--         languages = {"python"},
+--         chunks = "all",
+--         diagnostics = {
+--             enabled = true,
+--             triggers = { "BufWritePost" },
+--         },
+--         completion = {
+--             enabled = true,
+--         },
+--     },
+--     keymap = {
+--         -- NOTE: setup your own keymaps:
+--         hover = "jH",
+--         definition = "jgd",
+--         rename = "<leader>jrn",
+--         references = "jgr",
+--         format = "<leader>jgf",
+--     },
+--     codeRunner = {
+--         enabled = true,
+--         default_method = "slime",
+--     },
+-- })
 
-local runner = require("quarto.runner")
+-- local runner = require("quarto.runner")
 
-local source = {name = "otter"}
+-- local source = {name = "otter"}
 
-table.insert(lvim.builtin.cmp.sources, source)
+-- table.insert(lvim.builtin.cmp.sources, source)
 
 -- Notebook Conversion
 require("jupytext").setup({
@@ -72,6 +72,7 @@ require("jupynium").setup({
   --- For Conda environment named "jupynium",
   -- python_host = { "conda", "run", "--no-capture-output", "-n", "jupynium", "python" },
   python_host = vim.g.python3_host_prog or "python3",
+  -- python_host = "/home/shifat/venvs/venvDS/bin/python3",
 
   default_notebook_URL = "localhost:8888/nbclassic",
 
@@ -79,6 +80,7 @@ require("jupynium").setup({
   -- When you call :JupyniumStartAndAttachToServer and no notebook is open,
   -- then Jupynium will open the server for you using this command. (only when notebook_URL is localhost)
   jupyter_command = "jupyter",
+  -- jupyter_command = "/home/shifat/venvs/venvDS/bin/jupyter",
   --- For Conda, maybe use base environment
   --- then you can `conda install -n base nb_conda_kernels` to switch environment in Jupyter Notebook
   -- jupyter_command = { "conda", "run", "--no-capture-output", "-n", "base", "jupyter" },
@@ -196,16 +198,71 @@ hi! link JupyniumMagicCommand Keyword
 
 -- Please share your favourite settings on other colour schemes, so I can add defaults.
 -- Currently, tokyonight is supported.
+local iron = require("iron.core")
+local view = require("iron.view")
 
+iron.setup {
+  config = {
+    -- Whether a repl should be discarded or not
+    scratch_repl = true,
+    -- Your repl definitions come here
+    repl_definition = {
+      sh = {
+        -- Can be a table or a function that
+        -- returns a table (see below)
+        command = {"zsh"}
+      },
+      python = {
+        -- command = { "python3" },  -- or { "ipython", "--no-autoindent" }
+        command = { "ipython", "--no-autoindent" },
+        format = require("iron.fts.common").bracketed_paste_python
+      }
+    },
+    -- How the repl window will be displayed
+    -- See below for more information
+    -- repl_open_cmd = require('iron.view').bottom(40),
+    repl_open_cmd = view.split.vertical.botright(0.40),
 
+    -- repl_open_cmd = "vertical botright 80 split",
+  },
+  -- Iron doesn't set keymaps by default anymore.
+  -- You can set them here or manually add keymaps to the functions in iron.core
+  keymaps = {
+    send_motion = "<space>sc",
+    visual_send = "<space>sc",
+    send_file = "<space>sf",
+    send_line = "<space>sl",
+    send_paragraph = "<space>sp",
+    send_until_cursor = "<space>su",
+    send_mark = "<space>sm",
+    mark_motion = "<space>mc",
+    mark_visual = "<space>mc",
+    remove_mark = "<space>md",
+    cr = "<space>s<cr>",
+    interrupt = "<space>s<space>",
+    exit = "<space>sq",
+    clear = "<space>cl",
+  },
+  -- If the highlight is on, you can change how it looks
+  -- For the available options, check nvim_set_hl
+  highlight = {
+    italic = true
+  },
+  ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
+}
 
+-- -- iron also has a list of commands, see :h iron-commands for all available commands
+-- vim.keymap.set('n', '<space>rs', '<cmd>IronRepl<cr>')
+-- vim.keymap.set('n', '<space>rr', '<cmd>IronRestart<cr>')
+-- vim.keymap.set('n', '<space>rf', '<cmd>IronFocus<cr>')
+-- vim.keymap.set('n', '<space>rh', '<cmd>IronHide<cr>')
 
 
 
 
 -- Keybindings
 local ileader = require("user.ide_cfg.keybindigs_ide")
-ileader["N"] = {
+ileader["n"] = {
   name = "Jupyter Notebook",
   -- Molten Specific
   -- e = { ":MoltenEvaluateOperator<CR>", "Evaluate operator" },
@@ -215,19 +272,33 @@ ileader["N"] = {
   -- oh = {":MoltenHideOutput<CR>", "Close output window"},
   -- md = {":MoltenDelete<CR>", "Delete Molten cell"},
   -- mx = {":MoltenOpenInBrowser<CR>", "Open Output in Browser"},
-  -- Quarto Specific
-  c = {runner.run_cell, "Run Cell"},
-  a = {runner.run_above, "Run Above"},
-  A = {runner.run_all, "Run All Cells"},
-  l = {runner.run_line, "Run Line"},
-  r = {runner.run_range, "Run Visual Range"},
-  X = {
-    function ()
-      runner.run_all(true)
-    end,
-    "Run all cells of all languages"
-  },
-  Q = {require("quarto").activate(), "Activate Quarto"},
+  -- Jupynium Specific
+  i = {":JupyniumStartAndAttachToServer<CR>", "Start & Attach to Server"},
+  s = {":JupyniumStartSync<CR>", "Start Syncing"},
+  e = {":JupyniumExecuteSelectedCells<CR>", "Execute Cell"},
+  c = {":JupyniumClearSelectedCellsOutputs<CR>", "Clear Output"},
+  t = {":JupyniumToggleSelectedCellsOutputsScroll<CR>", "Toggle Output Scroll"},
+  k = {"Kernel Options"},
+  kr = {":JupyniumKernelRestart<CR>", "Kernel Restart"},
+  ki = {":JupyniumKernelInterrupt<CR>", "Kernel Interrupt"},
+  ks = {":JupyniumKernelSelect<CR>", "Kernel Select"},
+  h = {":help jupynium.nvim-keybindings<CR>", "Keybinding Help"},
+  r = {"IronRepl"},
+  rs = {"<cmd>IronRepl<cr>", "Iron Repl"},
+  rr = {"<cmd>IronRestart<cr>", "Iron Restart"},
+  ro = {"<cmd>IronFocus<cr>", "Focus"},
+  rh = {"<cmd>IronHide<cr>", "Iron Hide"},
+  ra = {"<cmd>IronAttach<cr>", "Iron Attach"},
+  rw = {"<cmd>IronWatch<cr>", "Iron Watch"},
+  rl = {iron.send_line, "Run current line"},
+  rt = {iron.send_until_cursor, "Run until current line"},
+  rq = {iron.exit, "Exit repl"},
+  rc = {iron.clear, "Clear repl"},
+  rx = {iron.interrupt, "Interrupt repl"},
+  rv = {iron.visual_send, "Run Selected lines"},
+  rm = {iron.send_motion, "Run Motion"},
+  rf = {iron.send_file, "Run File"},
+  rp = {iron.send_paragraph, "Run this Block"},
 
 }
 

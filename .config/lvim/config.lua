@@ -3,8 +3,3 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 require("user")
--- require("lvim.lsp.manager").setup("marksman")
---
-
-
-

@@ -32,5 +32,5 @@ local ileader = require("user.ide_cfg.keybindigs_ide")
 ileader["p"] = {
   name = "Python",
   e = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose Env" },
-  p = {"<cmd>QuartoPreview<cr>", "Privew as Notebook"}
+  s = {"<cmd>SymbolsOutline<cr>", "Symbols Outline"}
 }
