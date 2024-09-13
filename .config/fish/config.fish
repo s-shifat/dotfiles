@@ -34,6 +34,7 @@ alias l.="ls -A | egrep '^\.'"
 alias n="cd ~/notes/"
 alias p="cd ~/projects/"
 alias d="cd ~/Documents/"
+alias ds="source ~/venvs/venvDS/bin/activate.fish"
 
 
 
