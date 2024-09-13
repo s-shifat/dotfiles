@@ -39,6 +39,8 @@ local config = {
     default_tags = { "daily-notes" },
     -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
     template = nil
+    -- template = "Templates"
+    -- template = "default.md"
   },
 
   -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
@@ -53,12 +55,12 @@ local config = {
   -- way then set 'mappings = {}'.
   mappings = {
     -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-    ["gf"] = {
-      action = function()
-        return require("obsidian").util.gf_passthrough()
-      end,
-      opts = { noremap = false, expr = true, buffer = true },
-    },
+    -- ["gf"] = {
+    --   action = function()
+    --     return require("obsidian").util.gf_passthrough()
+    --   end,
+    --   opts = { noremap = false, expr = true, buffer = true },
+    -- },
     -- Toggle check-boxes.
     ["<leader>ch"] = {
       action = function()
@@ -164,16 +166,15 @@ local config = {
 
   -- Optional, for templates (see below).
   templates = {
-    folder = "templates",
+    folder = "Templates",
     date_format = "%Y-%m-%d",
     time_format = "%H:%M",
     -- A map for custom variables, the key should be the variable and the value a function
-    substitutions = {},
   },
 
   -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
   -- URL it will be ignored but you can customize this behavior here.
-  ---@param url string
+  -- -@param url string
   follow_url_func = function(url)
     -- Open the URL in the default web browser.
     -- vim.fn.jobstart({"open", url})  -- Mac OS
@@ -312,13 +313,32 @@ local config = {
 obsidian.setup(config)
 
 
-
 --  _  __          _     _           _ _                 
 -- | |/ /___ _   _| |__ (_)_ __   __| (_)_ __   __ _ ___ 
 -- | ' // _ \ | | | '_ \| | '_ \ / _` | | '_ \ / _` / __|
 -- | . \  __/ |_| | |_) | | | | | (_| | | | | | (_| \__ \
 -- |_|\_\___|\__, |_.__/|_|_| |_|\__,_|_|_| |_|\__, |___/
 --           |___/                             |___/     
+--
+--
+--  Following External Links
+--  Found it via: https://www.reddit.com/r/neovim/comments/ro6oye/comment/hqjfj89/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+local open_command = 'xdg-open'
+if vim.fn.has('mac') == 1 then
+  open_command = 'open'
+end
+
+local function url_repo()
+  local cursorword = vim.fn.expand('<cfile>')
+  if string.find(cursorword, '^[a-zA-Z0-9-_.]*/[a-zA-Z0-9-_.]*$') then
+    cursorword = 'https://github.com/' .. cursorword
+  end
+  return cursorword or ''
+end
+
+vim.keymap.set('n', 'gx', function()
+  vim.fn.jobstart({ open_command, url_repo() }, { detach = true })
+end, { silent = true })
 
 local obsidian_leader = require("user.obsidian_cfg.keybindings_obsidian")
 

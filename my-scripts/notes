@@ -51,7 +51,7 @@ notes_push() {
 
 # Notes | Git | Backup
 notes_backup() {
-  notes_pull && \
+  # notes_pull && \
     notes_status && \
     notes_add && \
     notes_commit && \
@@ -66,9 +66,9 @@ notes_help() {
   echo "Without Arguments: Open lvim with file search"
   echo -e "-l\tList Notes"
   echo -e "-g\tOpen Lvim Text Search"
-  echo -e "-b\tBackup Notes"
-  echo -e "-p\tPull Notes from upstream"
-  echo -e "-s\tPush Notes to upstream"
+  echo -e "-b\tBackup Notes [Push]"
+  echo -e "-p\tPush Notes to upstream [git push]"
+  echo -e "-s\tSync with remote [git pull]"
   echo -e "-a\tStage Notes"
   echo -e "-t\tNotes Status"
   echo -e "-c\tCommit Notes"
@@ -100,11 +100,11 @@ while getopts :lgbpsatch opt; do
     ;;
 
     p) 
-      notes_pull
+      notes_push
     ;;
 
     s) 
-      notes_push
+      notes_pull
     ;;
 
     a) 
