@@ -39,10 +39,19 @@ require("jupynium").setup({
   -- Used to remember the last session (password etc.).
   -- e.g. '~/.mozilla/firefox/profiles.ini'
   -- or '~/snap/firefox/common/.mozilla/firefox/profiles.ini'
-  firefox_profiles_ini_path = nil,
+  -- firefox_profiles_ini_path = nil,
+  firefox_profiles_ini_path = '~/.mozilla/firefox/profiles.ini',
   -- nil means the profile with Default=1
   -- or set to something like 'default-release'
-  firefox_profile_name = nil,
+  firefox_profile_name = 'jupynium',
+  -- To setup as such:
+  --  * Open firefox and go to about:profiles
+  --  * create a newprofile named 'jupynium'
+  --  * Don't make it default
+  --  * Now launch this profile and install vimium extension
+  --  * close the browser.
+  --  * Now In this file make sure firefox_profiles_ini_path and 
+  --  firefox_profile_name variables match.
 
   -- Open the Jupynium server if it is not already running
   -- which means that it will open the Selenium browser when you open this file.
