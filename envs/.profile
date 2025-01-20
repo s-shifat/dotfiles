@@ -1,0 +1,5 @@
+export PATH="$PATH:/home/shifat/.local/bin"
+export PATH="~/.npm-global/bin:$PATH"
+export PATH="/home/shifat/.cargo/bin:$PATH"
+export PATH="/home/shifat/clones/nvimmm/nvim-linux64/bin:$PATH"
+export PATH="/home/shifat/my-scripts/:$PATH"

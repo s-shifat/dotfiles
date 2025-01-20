@@ -1,0 +1,129 @@
+#!/usr/bin/bash
+
+CURRENT_DIR=$(pwd)
+NOTES_DIR=~/notes/
+
+cd $NOTES_DIR
+
+
+
+# Open lvim with text search option
+open_lvim_text_search() {
+  lvim -c ":ObsidianSearch"
+}
+
+
+# Open lvim with file search option
+open_lvim_notes_search() {
+  lvim -c ":ObsidianQuickSwitch"
+}
+
+# Open tree view with preview in `$NOTES_DIR`
+# Then open selected file with lvim
+list_notes() {
+  lvim "$(twf --height=0.5)"
+}
+
+# Notes| Git pull
+notes_pull() {
+  git pull
+}
+
+# Notes| Git status
+notes_status() {
+  git status
+}
+
+# Notes| Git add
+notes_add() {
+  git add .
+}
+
+# Notes| Git commit
+notes_commit() {
+  git commit -m "commit on $(date +"%b %d %Y")"
+}
+
+# Notes| Git push
+notes_push() {
+  git push
+}
+
+# Notes | Git | Backup
+notes_backup() {
+  # notes_pull && \
+    notes_status && \
+    notes_add && \
+    notes_commit && \
+    notes_push
+}
+
+
+# Help
+notes_help() {
+  echo "help:"
+  echo "Signature: notes -[flag]"
+  echo "Without Arguments: Open lvim with file search"
+  echo -e "-l\tList Notes"
+  echo -e "-g\tOpen Lvim Text Search"
+  echo -e "-b\tBackup Notes [Push]"
+  echo -e "-p\tPush Notes to upstream [git push]"
+  echo -e "-s\tSync with remote [git pull]"
+  echo -e "-a\tStage Notes"
+  echo -e "-t\tNotes Status"
+  echo -e "-c\tCommit Notes"
+  echo -e "-h\tShow this Help"
+
+}
+
+# if no Arguments are passed open lvim with
+# notes search option
+if [[ $# -eq 0 ]]; then
+  open_lvim_notes_search
+  cd $CURRENT_DIR
+  exit 0
+fi
+
+
+while getopts :lgbpsatch opt; do
+  case $opt in
+    l) 
+      list_notes
+    ;;
+
+    g) 
+      open_lvim_text_search
+    ;;
+
+    b) 
+      notes_backup
+    ;;
+
+    p) 
+      notes_push
+    ;;
+
+    s) 
+      notes_pull
+    ;;
+
+    a) 
+      notes_add
+    ;;
+
+    t) 
+      notes_status
+    ;;
+
+    c) 
+      notes_commit
+    ;;
+
+    h) 
+      notes_help
+    ;;
+  esac
+done
+
+shift $(( OPTIND - 1 ))
+

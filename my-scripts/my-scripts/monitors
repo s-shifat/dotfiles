@@ -1,0 +1,66 @@
+#!/usr/bin/python
+
+import os
+import argparse
+from pathlib import Path
+
+# TODO: Add location based sensing. Starting point: geocoder.ip('me').latlng
+
+HOME = Path.home()
+
+DOTFILES = os.path.join(HOME, 'dotfiles')
+
+HYPRDOTS = os.path.join(DOTFILES, 'hypr', '.config', 'hypr')
+
+MONITORSCONF = os.path.join(HYPRDOTS, 'monitors.conf')
+
+HEADER_LINE = '# Active MultiMonitor Setup\n'
+OFFICE_CONFIG = 'source = ~/.config/hypr/monitors_office.conf # WORK Monitors'
+HOME_CONFIG = 'source = ~/.config/hypr/monitors_home.conf # HOME Monitors'
+
+# Utils
+
+def write_config(content):
+    with open(MONITORSCONF, 'w') as f:
+        f.write(content)
+
+
+def locate_config():
+    if not os.path.exists(MONITORSCONF):
+        write_config(HEADER_LINE)
+
+        print('monitors.conf was not found...\n so created', MONITORSCONF)
+
+# Config Setters
+
+def activate_home():
+    locate_config()
+    content = '\n'.join([HEADER_LINE, HOME_CONFIG])
+    write_config(content)
+    print('Activated Home Monitor Setup')
+
+
+def activate_office():
+    locate_config()
+    content = '\n'.join([HEADER_LINE, OFFICE_CONFIG])
+    write_config(content)
+    print('Activated OFFICE Monitor Setup')
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Simple script to setup active monitor setup for hyprland')
+    parser.add_argument('room', metavar='room', type=str, help='Which room you are at? Offce or Home')
+    args = parser.parse_args()
+    room = args.room
+
+    if room.lower() in ['home', 'h']:
+        activate_home()
+
+    elif room.lower() in ['office', 'o', 'work', 'w']:
+        activate_office()
+    else:
+        print('Invalid option... Should be Home or Office')
+
+
+if __name__ == "__main__":
+    main()
