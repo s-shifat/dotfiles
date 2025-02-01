@@ -35,7 +35,7 @@ vim.opt.relativenumber = true                   -- set relative numbered lines
 vim.opt.numberwidth = 2                         -- set number column width to 2 {default 4}
 vim.opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
 vim.opt.wrap = false                            -- display lines as one long line
-vim.opt.scrolloff = 8                           -- is one of my fav
+vim.opt.scrolloff = 12                           -- is one of my fav
 vim.opt.sidescrolloff = 8
 --vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 vim.opt.spelllang = "en_us"                     -- Spell checking to english US
@@ -68,7 +68,7 @@ lvim.builtin.nvimtree.setup.renderer.indent_markers.enable = true
 -- Nvim.project
 lvim.builtin.project.patterns = {
   -- defaults
-  ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json",
+  ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pyproject.toml",
   -- Project Specific -> I have my projects under a directory named "projects"
   ">projects",
   -- latex specific
