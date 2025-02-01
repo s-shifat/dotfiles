@@ -37,3 +37,5 @@ directly from lvim and it syncs with jupyter notebook via browser automation.
     ```
 6. Now launch lvim and open that *.ju.py file and `<leader>ini` and sync with the `.ipynb` file
 
+### DataScience and Neovim Setups And Limitations
+https://vi.stackexchange.com/questions/45059/interactive-python-script-development
