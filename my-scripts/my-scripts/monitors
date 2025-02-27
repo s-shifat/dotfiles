@@ -3,6 +3,7 @@
 import os
 import argparse
 from pathlib import Path
+import subprocess
 
 # TODO: Add location based sensing. Starting point: geocoder.ip('me').latlng
 
@@ -18,6 +19,9 @@ HEADER_LINE = '# Active MultiMonitor Setup\n'
 OFFICE_CONFIG = 'source = ~/.config/hypr/monitors_office.conf # WORK Monitors'
 HOME_CONFIG = 'source = ~/.config/hypr/monitors_home.conf # HOME Monitors'
 
+HOME_MONITOR_WORKSPACE_FIX_SCRIPT = "~/my-scripts/fixmonitor_home.sh"
+OFFICE_MONITOR_WORKSPACE_FIX_SCRIPT = "~/my-scripts/fixmonitor_office.sh"
+
 # Utils
 
 def write_config(content):
@@ -31,12 +35,17 @@ def locate_config():
 
         print('monitors.conf was not found...\n so created', MONITORSCONF)
 
+def reset_workspaces():
+    """Reset all workspace assignments to avoid conflicts."""
+    subprocess.run(["hyprctl", "--batch", " ".join([f"dispatch moveworkspacetomonitor {i} reset;" for i in range(1, 11)])])
+
 # Config Setters
 
 def activate_home():
     locate_config()
     content = '\n'.join([HEADER_LINE, HOME_CONFIG])
     write_config(content)
+    subprocess.run(HOME_MONITOR_WORKSPACE_FIX_SCRIPT)
     print('Activated Home Monitor Setup')
 
 
@@ -44,6 +53,8 @@ def activate_office():
     locate_config()
     content = '\n'.join([HEADER_LINE, OFFICE_CONFIG])
     write_config(content)
+    subprocess.run(OFFICE_MONITOR_WORKSPACE_FIX_SCRIPT)
+
     print('Activated OFFICE Monitor Setup')
 
 
@@ -53,6 +64,7 @@ def main():
     args = parser.parse_args()
     room = args.room
 
+    reset_workspaces()
     if room.lower() in ['home', 'h']:
         activate_home()
 
