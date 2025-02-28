@@ -13,15 +13,16 @@ DOTFILES = os.path.join(HOME, 'dotfiles')
 
 HYPRDOTS = os.path.join(DOTFILES, 'hypr', '.config', 'hypr')
 
-MONITORSCONF = os.path.join(HYPRDOTS, 'monitors.conf')
+MONITORSCONF = os.path.join(HYPRDOTS, 'monitors', 'monitors.conf')
 
 HEADER_LINE = '# Active MultiMonitor Setup\n'
-OFFICE_CONFIG = 'source = ~/.config/hypr/monitors_office.conf # WORK Monitors'
-HOME_CONFIG = 'source = ~/.config/hypr/monitors_home.conf # HOME Monitors'
+OFFICE_CONFIG = 'source = ~/.config/hypr/monitors/profiles/office.conf'
+HOME_CONFIG = 'source = ~/.config/hypr/monitors/profiles/home.conf'
 
-HOME_MONITOR_WORKSPACE_FIX_SCRIPT = "~/my-scripts/fixmonitor_home.sh"
-OFFICE_MONITOR_WORKSPACE_FIX_SCRIPT = "~/my-scripts/fixmonitor_office.sh"
 
+HOME_MONITOR_WORKSPACE_FIX_SCRIPT = os.path.join(HOME, "my-scripts", "fixmonitor_home.sh")
+# OFFICE_MONITOR_WORKSPACE_FIX_SCRIPT = "~/my-scripts/fixmonitor_office.sh"
+OFFICE_MONITOR_WORKSPACE_FIX_SCRIPT = os.path.join(HOME, "my-scripts", "fixmonitor_office.sh")
 # Utils
 
 def write_config(content):
@@ -40,6 +41,15 @@ def reset_workspaces():
     subprocess.run(["hyprctl", "--batch", " ".join([f"dispatch moveworkspacetomonitor {i} reset;" for i in range(1, 11)])])
 
 # Config Setters
+
+def activate(config, script):
+    locate_config()
+    content = '\n'.join([HEADER_LINE, config])
+    write_config(content)
+    subprocess.run(script)
+    print('Activated Home Monitor Setup')
+
+
 
 def activate_home():
     locate_config()
@@ -67,9 +77,11 @@ def main():
     reset_workspaces()
     if room.lower() in ['home', 'h']:
         activate_home()
+        # activate(HOME_CONFIG, HOME_MONITOR_WORKSPACE_FIX_SCRIPT)
 
     elif room.lower() in ['office', 'o', 'work', 'w']:
         activate_office()
+        # activate(OFFICE_CONFIG, OFFICE_MONITOR_WORKSPACE_FIX_SCRIPT)
     else:
         print('Invalid option... Should be Home or Office')
 
