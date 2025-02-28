@@ -3,6 +3,24 @@
 import subprocess
 import re
 from typing import Callable, Any
+import os
+from pathlib import Path
+import glob
+
+BUILTIN_MONITOR_DESCRIPTION = 'Lenovo Group Limited 0x41B5'
+
+
+
+
+HOME = Path.home()
+DOTFILES = os.path.join(HOME, 'dotfiles')
+
+HYPRDOTS = os.path.join(DOTFILES, 'hypr', '.config', 'hypr')
+
+MONITORSCONF = os.path.join(HYPRDOTS, 'monitors', 'monitors.conf')
+
+PROFILES_DIR = os.path.join(HYPRDOTS, 'monitors', 'profiles')
+
 
 
 
@@ -10,8 +28,37 @@ def reset_workspaces():
     """Reset all workspace assignments to avoid conflicts."""
     subprocess.run(["hyprctl", "--batch", " ".join([f"dispatch moveworkspacetomonitor {i} reset;" for i in range(1, 11)])])
 
+class Profiles:
+    PROFILE_PATHS = glob.glob(PROFILES_DIR + "/*.conf")
+    def __init__(self) -> None:
+        self.__raw_profiles = []
+        self.__load_profiles()
+        self.active_profile = None
+
+    def __load_profiles(self):
+        for path in Profiles.PROFILE_PATHS:
+            with open(path) as f:
+                contents = f.readlines()
+            raw_monitors = [x for x in contents if x.startswith('monitor=')]
+            self.__raw_profiles.append(raw_monitors)
+
+    def __process_profiles(self):
+        pass
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Monitor:
-    BUILTIN_MONITOR_DESCRIPTION = 'Lenovo Group Limited 0x41B5'
+    BUILTIN_MONITOR_DESCRIPTION = BUILTIN_MONITOR_DESCRIPTION
     def __init__(self, data:str) -> None:
         self.data = data
 

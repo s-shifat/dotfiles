@@ -13,17 +13,67 @@ DOTFILES = os.path.join(HOME, 'dotfiles')
 
 HYPRDOTS = os.path.join(DOTFILES, 'hypr', '.config', 'hypr')
 
-MONITORSCONF = os.path.join(HYPRDOTS, 'monitors', 'monitors.conf')
+MONITORSCONF_DIR = os.path.join(HYPRDOTS, 'monitors')
+MONITORSCONF = os.path.join(MONITORSCONF_DIR, 'monitors.conf')
+PROFILES_DIR = os.path.join(MONITORSCONF_DIR, 'profiles')
 
 HEADER_LINE = '# Active MultiMonitor Setup\n'
 OFFICE_CONFIG = 'source = ~/.config/hypr/monitors/profiles/office.conf'
 HOME_CONFIG = 'source = ~/.config/hypr/monitors/profiles/home.conf'
+CONFIG_PREFIX = 'source = '
 
 
 HOME_MONITOR_WORKSPACE_FIX_SCRIPT = os.path.join(HOME, "my-scripts", "fixmonitor_home.sh")
-# OFFICE_MONITOR_WORKSPACE_FIX_SCRIPT = "~/my-scripts/fixmonitor_office.sh"
 OFFICE_MONITOR_WORKSPACE_FIX_SCRIPT = os.path.join(HOME, "my-scripts", "fixmonitor_office.sh")
 # Utils
+
+def get_profile_path(profile_name='home'):
+    profile_path = os.path.join(PROFILES_DIR, profile_name+'.conf')
+    assert os.path.exists(profile_path), "Profile doesn't exists!"
+    return profile_path
+
+
+def get_monitors_from_profile(name='home'):
+    profile_path = get_profile_path(profile_name=name)
+    with open(profile_path) as f:
+        config_contents = f.readlines()
+    raw_monitor_data = [x for x in config_contents if x.startswith('monitor=')]
+
+    monitors = []
+    for config in raw_monitor_data:
+        _, properties = config.strip().split(":")  # All The monitors in profiles must start with montor=desc:
+        properties = properties.split(",")
+        monitor_desc = properties[0].strip()
+        posx, posy = [int(pos.strip()) for pos in properties[2].strip().split("x")]
+        monitors.append((monitor_desc, posx, posy))
+
+    monitors = sorted(monitors, key=lambda x: x[1])
+    count = len(monitors)
+    return monitors, count
+
+def three_monitor_setup(monitors):
+    left, middle, right = monitors
+    command = " ".join(f"dispatch moveworkspacetomonitor {i} desc:{left[0]};" for i in range(1,4))  # Left ws->1,2,3
+    command = command + " " + " ".join(f"dispatch moveworkspacetomonitor {i} desc:{middle[0]};" for i in range(4,7))  # Middle ws->4,5,6
+    command = command + " " + " ".join(f"dispatch moveworkspacetomonitor {i} desc:{right[0]};" for i in range(7,10))  # Right ws -> 7,8,9
+    subprocess.run(["hyprctl", "--batch", command])
+    return command
+
+def two_monitor_setup(monitors):
+    print("Dual monitor isn't developed yet!")
+
+
+def distribute_workspaces_to_monitors(for_profile_name='home'):
+    monitors, count = get_monitors_from_profile(for_profile_name)
+    match count:
+        case 3:
+            print(f"Detected {count} monitors for profile: {for_profile_name}")
+            three_monitor_setup(monitors)
+        case 2:
+            two_monitor_setup(monitors)
+        case _:
+            print("No external monitors detected. Falling back to default")
+
 
 def write_config(content):
     with open(MONITORSCONF, 'w') as f:
@@ -38,16 +88,24 @@ def locate_config():
 
 def reset_workspaces():
     """Reset all workspace assignments to avoid conflicts."""
+
+    print("Resetting Monitors....")
     subprocess.run(["hyprctl", "--batch", " ".join([f"dispatch moveworkspacetomonitor {i} reset;" for i in range(1, 11)])])
 
 # Config Setters
 
-def activate(config, script):
+def activate(name):
     locate_config()
-    content = '\n'.join([HEADER_LINE, config])
-    write_config(content)
-    subprocess.run(script)
-    print('Activated Home Monitor Setup')
+    config_loaction = get_profile_path(profile_name=name)
+    config_content = '\n'.join([
+        HEADER_LINE,
+        CONFIG_PREFIX + config_loaction
+        ])
+    write_config(config_content)
+    distribute_workspaces_to_monitors(for_profile_name=name)
+    # subprocess.run(script)
+    print('Activated Monitor Setup Profile -->', name)
+    print("Configuration loacation:", config_loaction)
 
 
 
@@ -76,15 +134,18 @@ def main():
 
     reset_workspaces()
     if room.lower() in ['home', 'h']:
-        activate_home()
-        # activate(HOME_CONFIG, HOME_MONITOR_WORKSPACE_FIX_SCRIPT)
+        # activate_home()
+        activate('home')
 
     elif room.lower() in ['office', 'o', 'work', 'w']:
-        activate_office()
-        # activate(OFFICE_CONFIG, OFFICE_MONITOR_WORKSPACE_FIX_SCRIPT)
+        # activate_office()
+        activate('office')
     else:
         print('Invalid option... Should be Home or Office')
 
+def develop():
+    pass
 
 if __name__ == "__main__":
     main()
+    # develop()
