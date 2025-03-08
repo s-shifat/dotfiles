@@ -91,7 +91,7 @@ lvim.builtin.telescope.defaults.file_ignore_patterns = {
   -- python-specific
   "./poetry.lock",
   "./ipynb%_checkpoints/*",
-  "*.ipynb",
+  "./*.ipynb",
   -- LaTeX specific
   "main%.aux", "main%.log", "main%.out", "main%.toc", "main%.bbl",
   "main%.blg", "main%.lof", "main%.lot", "main%.nav", "main%.snm",
