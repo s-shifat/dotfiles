@@ -1,7 +1,7 @@
 # LunarVim
 
 # Installation: 
-Follw the instructions from [here](https://www.lunarvim.org/docs/installation)
+Follow the instructions from [here](https://www.lunarvim.org/docs/installation)
 
 # Plugin Highlights
 
@@ -22,7 +22,7 @@ directly from lvim and it syncs with jupyter notebook via browser automation.
 1. Activate the virtual environment. If using `poetry` do:
     ```fish
     eval (poetry env activate)
-    ```
+   ```
 2. Install the project dependencies if not already installed
 3. Install `ipykernel`:
     ```fish
@@ -39,3 +39,11 @@ directly from lvim and it syncs with jupyter notebook via browser automation.
 
 ### DataScience and Neovim Setups And Limitations
 https://vi.stackexchange.com/questions/45059/interactive-python-script-development
+
+
+# Adding Custom Text objects
+Follow instructions [here](https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#adding-queries)
+
+For example, to create text object for markdown files create/edit:  `$LUNARVIM_CONFIG_DIR/queries/markdown/textobjects.scm`
+I have added a querry that will select everything inside a code fence.
+
