@@ -46,4 +46,3 @@ Follow instructions [here](https://github.com/nvim-treesitter/nvim-treesitter?ta
 
 For example, to create text object for markdown files create/edit:  `$LUNARVIM_CONFIG_DIR/queries/markdown/textobjects.scm`
 I have added a querry that will select everything inside a code fence.
-
