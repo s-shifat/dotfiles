@@ -1,3 +1,5 @@
+vim.cmd("autocmd BufRead,BufNewFile *.tex set filetype=tex")
+
 local g = vim.g
 
 -- enable Vimtex
@@ -12,7 +14,7 @@ g.vimtex_compiler_latexmk = {
 }
 -- g.vimtex_view_method = 'Okular'
 
-g.vimtex_view_general_viewer = 'okular'
+-- g.vimtex_view_general_viewer = 'okular'
 g.vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'
 -- set up mappings
 -- local map = require('utils').map

@@ -1,6 +1,7 @@
 -- Set the Keybindings
 
 local ileader = require("user.ide_cfg.keybindigs_ide")
+require("lvim.lsp.manager").setup("texlab")
 
 ileader["l"] = {
   name = "LaTeX",

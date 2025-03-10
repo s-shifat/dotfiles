@@ -2,25 +2,25 @@ package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/shar
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua"
 
 lvim.plugins = {
-{
+  {
     "vhyrro/luarocks.nvim",
     priority = 1001, -- this plugin needs to run before anything else
     opts = {
-        rocks = { "magick" },
+      rocks = { "magick" },
     },
-},
+  },
 
-{
+  {
     "3rd/image.nvim",
     config = function()
       require("image").setup({
-        backend = "kitty",  -- Or "kitty" if using Kitty terminal
+        backend = "kitty", -- Or "kitty" if using Kitty terminal
         integrations = {
           markdown = {
-            enabled = true,  -- Enables images in Markdown
+            enabled = true, -- Enables images in Markdown
           },
           neorg = {
-            enabled = true,  -- Enables images in Neorg
+            enabled = true, -- Enables images in Neorg
           },
         },
       })
@@ -142,7 +142,18 @@ lvim.plugins = {
   -- might need it later in tex documents -|
   --  %! tex root: ./main.tex
   {
-    'lervag/vimtex'
+    "lervag/vimtex",
+    lazy = false, -- we don't want to lazy load VimTeX
+    ft = "tex",
+    -- tag = "v2.15", -- uncomment to pin to a specific release
+    config = function()
+      vim.cmd("call vimtex#init()")
+      vim.g.vimtex_view_general_viewer = 'okular'
+      vim.g.vimtex_view_general_options = [[--unique file:@pdf\#src:@line@tex]]
+      vim.g.vimtex_quickfix_enabled = 1
+      vim.g.vimtex_syntax_enabled = 1
+      vim.g.vimtex_quickfix_mode = 0
+    end,
   },
 
   -- gitignore generator
@@ -174,7 +185,7 @@ lvim.plugins = {
   -- {
   --   "AckslD/swenv.nvim"
   -- },
-  {"jghauser/kitty-runner.nvim"},
+  { "jghauser/kitty-runner.nvim" },
 
   -- Python IDE specific
   {
@@ -266,12 +277,12 @@ lvim.plugins = {
     },
   },
 
-{
-  "dharmx/telescope-media.nvim",
-  config = function()
-    require("telescope").load_extension("media")
-  end,
-},
+  {
+    "dharmx/telescope-media.nvim",
+    config = function()
+      require("telescope").load_extension("media")
+    end,
+  },
 
   -- nvim surround
   {
