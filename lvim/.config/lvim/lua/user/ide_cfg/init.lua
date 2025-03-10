@@ -5,6 +5,7 @@ require("user.ide_cfg.python_ide")
 require("user.ide_cfg.markdown_ide")
 require("user.ide_cfg.latex_ide")
 require("user.ide_cfg.jupyter_ide")
+require("user.ide_cfg.kitty_repl")
 
 
 -- Some Personal keybindings

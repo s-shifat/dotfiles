@@ -285,8 +285,8 @@ ileader["m"] = {
 
   c = {'<cmd>FeMaco<cr>', "Edit Code Cells with lsp"},
 
-  -- i = {show_image_full_doc, "Show Image"},
-  -- I = {image_at_cursor_only, "Show image at cursor only"},
+  i = {show_image_full_doc, "Show Image"},
+  I = {image_at_cursor_only, "Show image at cursor only"},
 
   m = {"Mindmap"},
   mp = {'<cmd>MarkmapWatch<cr>', "View as Mindmap"},

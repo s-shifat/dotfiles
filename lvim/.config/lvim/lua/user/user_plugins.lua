@@ -2,6 +2,31 @@ package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/shar
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua"
 
 lvim.plugins = {
+{
+    "vhyrro/luarocks.nvim",
+    priority = 1001, -- this plugin needs to run before anything else
+    opts = {
+        rocks = { "magick" },
+    },
+},
+
+{
+    "3rd/image.nvim",
+    config = function()
+      require("image").setup({
+        backend = "kitty",  -- Or "kitty" if using Kitty terminal
+        integrations = {
+          markdown = {
+            enabled = true,  -- Enables images in Markdown
+          },
+          neorg = {
+            enabled = true,  -- Enables images in Neorg
+          },
+        },
+      })
+    end,
+  },
+
   -- {
   --   "vhyrro/luarocks.nvim",
   --   priority = 1001, -- this plugin needs to run before anything else
@@ -15,7 +40,8 @@ lvim.plugins = {
   },
 
   -- Cattpuccin Theme
-  { "catppuccin/nvim",
+  {
+    "catppuccin/nvim",
     name = "catppuccin",
     priority = 10000,
     lazy = false
@@ -25,21 +51,12 @@ lvim.plugins = {
 
   -- Symbols Outline | variable explorer
   {
-  "simrat39/symbols-outline.nvim",
+    "simrat39/symbols-outline.nvim",
   },
 
 
--- image support for neovim/lvim
+  -- image support for neovim/lvim
   -- To make it work install manually on local system
-
-  -- {
-  --   "3rd/image.nvim",
-  --   dependencies = { "luarocks.nvim" },
-  --   config = function()
-  --     -- ...
-  --   end
-  -- },
-
 
   -- GitSigns
   {
@@ -47,12 +64,12 @@ lvim.plugins = {
   },
 
 
--- Text Objects
+  -- Text Objects
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
 
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
-  };
+  },
 
 
   -- Markdown Preview
@@ -67,7 +84,7 @@ lvim.plugins = {
   },
 
 
-  -- Markdown: edit injected language trees with correct filetype in a floating window. 
+  -- Markdown: edit injected language trees with correct filetype in a floating window.
   {
     'AckslD/nvim-FeMaco.lua',
     config = 'require("femaco").setup()',
@@ -87,10 +104,10 @@ lvim.plugins = {
 
   -- Markdown: Auto numbering
   -- {'preservim/vim-markdown'},
-  {'bullets-vim/bullets.vim'},
+  { 'bullets-vim/bullets.vim' },
 
   --- Latex Encoding utility
-  {'Konfekt/vim-latexencode'},
+  { 'Konfekt/vim-latexencode' },
 
   --  Markdown: Mindmap View
   --  [markdown markmap mindmap]
@@ -104,20 +121,20 @@ lvim.plugins = {
     cmd = { "MarkmapOpen", "MarkmapSave", "MarkmapWatch", "MarkmapWatchStop" },
     opts = {
       html_output = "/tmp/markmap.html", -- (default) Setting a empty string "" here means: [Current buffer path].html
-      hide_toolbar = false, -- (default)
-      grace_period = 3600000 -- (default) Stops markmap watch after 60 minutes. Set it to 0 to disable the grace_period.
+      hide_toolbar = false,              -- (default)
+      grace_period = 3600000             -- (default) Stops markmap watch after 60 minutes. Set it to 0 to disable the grace_period.
     },
     config = function(_, opts) require("markmap").setup(opts) end
   },
 
   -- Markdown: TOC
-  {'richardbizik/nvim-toc'},
+  { 'richardbizik/nvim-toc' },
 
   -- Markdown: Vim Table Mode
-  {'dhruvasagar/vim-table-mode'},
+  { 'dhruvasagar/vim-table-mode' },
 
   -- Markdown: Markdown Code Block Evaluation
-  {'jubnzv/mdeval.nvim'},
+  { 'jubnzv/mdeval.nvim' },
 
   -- latex plugin
   -- latexmk needs to be installed
@@ -154,9 +171,10 @@ lvim.plugins = {
   },
 
   -- Python IDE: environments
-  {
-     "AckslD/swenv.nvim"
-  },
+  -- {
+  --   "AckslD/swenv.nvim"
+  -- },
+  {"jghauser/kitty-runner.nvim"},
 
   -- Python IDE specific
   {
@@ -221,7 +239,7 @@ lvim.plugins = {
   -- Obsidian
   {
     "epwalsh/obsidian.nvim",
-    version = "*",  -- recommended, use latest release instead of latest commit
+    version = "*", -- recommended, use latest release instead of latest commit
     lazy = true,
     ft = "markdown",
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
@@ -248,12 +266,20 @@ lvim.plugins = {
     },
   },
 
-  -- nvim surround
 {
+  "dharmx/telescope-media.nvim",
+  config = function()
+    require("telescope").load_extension("media")
+  end,
+},
+
+  -- nvim surround
+  {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
-}
+  }
+
 
 
 }
