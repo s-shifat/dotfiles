@@ -1,0 +1,28 @@
+#!/usr/bin/python
+
+import argparse
+import subprocess
+
+
+def switch_to_zone(n):
+    left_monitor = n
+    middle_monitor = n+3
+    right_monitor = n+6
+    workspaces_to_show = [left_monitor, right_monitor, middle_monitor]
+    command = " ".join(f"dispatch workspace {w};" for w in workspaces_to_show)
+    subprocess.run(["hyprctl", "--batch", command])
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Switch workzones')
+    parser.add_argument('zone', metavar='zone', type=int, help='Which zone')
+    args = parser.parse_args()
+    zone = args.zone
+    switch_to_zone(zone)
+
+
+if __name__ == "__main__":
+    main()
+
+
+

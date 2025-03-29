@@ -25,7 +25,8 @@ require("jupynium").setup({
   -- Write jupyter command but without "notebook"
   -- When you call :JupyniumStartAndAttachToServer and no notebook is open,
   -- then Jupynium will open the server for you using this command. (only when notebook_URL is localhost)
-  jupyter_command = "jupyter",
+  -- jupyter_command = "jupyter",
+  jupyter_command = {vim.g.python3_host_prog or "python3", "-m", "jupyter"},
   -- jupyter_command = "/home/shifat/venvs/venvDS/bin/jupyter",
   --- For Conda, maybe use base environment
   --- then you can `conda install -n base nb_conda_kernels` to switch environment in Jupyter Notebook
