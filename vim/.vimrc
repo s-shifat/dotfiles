@@ -53,7 +53,8 @@ nnoremap L :bnext<CR>
 
 
 " === Leader Key Shortcuts ===
-nnoremap <Leader>w :wqall<CR>           " Save and quit all
+nnoremap <Leader>w :w<CR>           " Save and quit all
+nnoremap <Leader>wq :wqall<CR>           " Save and quit all
 nnoremap <Leader>c :wq<CR>              " Save and quit current buffer
 nnoremap <Leader>q :q<CR>               " Quit current window
 nnoremap <Leader>x :x<CR>               " Save and quit
