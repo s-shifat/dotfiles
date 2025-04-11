@@ -3,7 +3,7 @@
 I wrote this rc file for the minimal features I want in vim.
 
 ## Setup
-Simply copy everything from [`.vimrc`](./.vimrc) and paste it in `~/$HOME/.vimrc` file.
+Simply copy everything from [`.vimrc`](./.vimrc) and paste it in `~/.vimrc` file.
 
 Some other quick ways:
 
