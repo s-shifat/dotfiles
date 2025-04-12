@@ -14,3 +14,4 @@ require("user.ide_cfg.kitty_repl")
 -- make sure `figlet` is installed in path
 --  https://github.com/cmatsuoka/figlet
 lvim.keys.visual_mode["<leader>art"] = {"!figlet<cr>"}
+

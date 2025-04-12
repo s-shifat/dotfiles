@@ -13,4 +13,3 @@ require("user.project_cfg")
 
 -- Core Plugins List: 
 -- https://www.lunarvim.org/docs/features/core-plugins-list
-

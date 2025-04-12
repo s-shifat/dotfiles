@@ -1,7 +1,8 @@
-local formatters = require "lvim.lsp.null-ls.formatters"
+-- -- local formatters = require "lvim.lsp.null-ls.formatters"
+-- local formatters = require("none-ls.formatters")
 
--- :Mason Install black
-formatters.setup { { name = "black" } }
+-- -- :Mason Install black
+-- formatters.setup { { name = "black" } }
 
 -- local linters = require "lvim.lsp.null-ls.linters"
 -- linters.setup { { command = "ruff", filetypes = { "python" } } }
