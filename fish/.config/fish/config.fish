@@ -156,7 +156,12 @@ end
 
 
 # reporting tools - install when not installed
-fastfetch
+# Only run fastfetch in interactive shells
+if status is-interactive
+    fastfetch
+end
+
+# fastfetch
 # neofetch
 #screenfetch
 #alsi
