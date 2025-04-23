@@ -1,1 +1,3 @@
-require("my-config")
+require("config")
+vim.cmd("set showtabline=2")
+
