@@ -1,0 +1,93 @@
+{
+  "DataScience_NB": {
+    "prefix": "ds",
+    "body": [
+      "# %%",
+      "import numpy as np",
+      "import numpy as np",
+      "import pandas as pd",
+      "import matplotlib.pyplot as plt",
+      "import matplotlib as mpl",
+      "",
+      "# some nice settings",
+      "mpl.rcParams.update({",
+      "    \"text.usetex\": False,",
+      "    \"font.family\": \"serif\",",
+      "    \"font.serif\": [\"Times New Roman\", \"Computer Modern\"],",
+      "    \"axes.titlesize\": 14,",
+      "    \"axes.labelsize\": 12,",
+      "    \"legend.fontsize\": 12,",
+      "    \"xtick.labelsize\": 12,",
+      "    \"xtick.direction\": \"out\",",
+      "    \"ytick.labelsize\": 12,",
+      "    \"ytick.direction\": \"out\",",
+      "    \"figure.figsize\": (8, 6),",
+      "})",
+      "",
+      "",
+      "# %%",
+      "DATA_PATH = \"${1:./data.csv}\"",
+      "df = pd.read_csv(DATA_PATH)",
+      "df",
+      "",
+      "# %%",
+      "df.info()"
+    ],
+    "description": "Preamble for a typical datascience project"
+  },
+  "DataScience_Ex": {
+    "prefix": "dsx",
+    "body": [
+      "# %%",
+      "import numpy as np",
+      "import numpy as np",
+      "import pandas as pd",
+      "import matplotlib.pyplot as plt",
+      "import matplotlib as mpl",
+      "",
+      "# some nice settings",
+      "mpl.rcParams.update({",
+      "    \"text.usetex\": False,",
+      "    \"font.family\": \"serif\",",
+      "    \"font.serif\": [\"Times New Roman\", \"Computer Modern\"],",
+      "    \"axes.titlesize\": 14,",
+      "    \"axes.labelsize\": 12,",
+      "    \"legend.fontsize\": 12,",
+      "    \"xtick.labelsize\": 12,",
+      "    \"xtick.direction\": \"out\",",
+      "    \"ytick.labelsize\": 12,",
+      "    \"ytick.direction\": \"out\",",
+      "    \"figure.figsize\": (8, 6),",
+      "})",
+      "",
+      "",
+      "DATA_PATH = \"${1:./data.csv}\"",
+      "df = pd.read_csv(DATA_PATH)",
+      "print(df)",
+      "",
+      "print(df.info())"
+    ],
+    "description": "Preamble for a typical datascience project"
+  },
+  "CodeCell": {
+    "prefix": "c",
+    "body": [
+      "# %%",
+      "${1}",
+      ""
+    ],
+    "description": "Jupynium -> Code cell"
+  },
+  "MarkdownCell": {
+    "prefix": "md",
+    "body": [
+      "# %% [md]",
+      "\"\"\"",
+      "${1}",
+      "\"\"\"",
+      ""
+    ],
+    "description": "Jupynium -> Code cell"
+  }
+}
+

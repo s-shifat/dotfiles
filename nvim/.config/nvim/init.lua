@@ -1,3 +1,1 @@
-require("config")
-vim.cmd("set showtabline=2")
-
+require("s-shifat")
