@@ -1,48 +1,37 @@
-" === Minimal vimrc for remote SSH machines ===
-
-" Set leader key to Space
 let mapleader = " "
 
-" === General Options ===
 set nocompatible
-set number                   " Show absolute line numbers
-set relativenumber           " Relative line numbers
-set tabstop=4                " Number of spaces a <Tab> counts for
-set shiftwidth=4             " Number of spaces for each indent
-set expandtab                " Use spaces instead of tabs
-set autoindent               " Auto-indent new lines
-set smartindent              " Smarter autoindenting
-set ignorecase               " Case-insensitive search...
-set smartcase                " ...unless capital letters used
-set incsearch                " Show matches as you type
-set hlsearch                 " Highlight matches
-set cursorline               " Highlight current line
-set wrap                     " Wrap long lines
-set scrolloff=8              " Keep 8 lines above/below cursor
-set sidescrolloff=8          " Keep 8 columns left/right
-set clipboard=unnamedplus    " Use system clipboard if available
-set mouse=a                  " Enable mouse
-set hidden                   " Switch buffers without saving
-set updatetime=300           " Faster CursorHold trigger
-set splitright               " Vertical split to the right
-set splitbelow               " Horizontal split below
-
-" === Performance Boosts for SSH ===
+set number
+set relativenumber
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set smartindent
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set cursorline
+set wrap
+set scrolloff=8
+set sidescrolloff=8
+set clipboard=unnamedplus
+set mouse=a
+set hidden
+set updatetime=300
+set splitright
+set splitbelow
 set ttyfast
 set lazyredraw
 set noswapfile
 set nobackup
 set nowritebackup
-
-" === Status Line & Display ===
 set laststatus=2
 set showcmd
 set ruler
 
-" === Insert Mode Escape ===
 inoremap jj <Esc>
-
-" === Split Navigation with Ctrl + hjkl ===
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -51,34 +40,26 @@ nnoremap <C-l> <C-w>l
 nnoremap H :bprevious<CR>
 nnoremap L :bnext<CR>
 
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>wq :wqall<CR>
+nnoremap <Leader>c :wq<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>x :x<CR>
+nnoremap <Leader>h :noh<CR>
+nnoremap <Leader>r :source $MYVIMRC<CR>
 
-" === Leader Key Shortcuts ===
-nnoremap <Leader>w :w<CR>           " Save and quit all
-nnoremap <Leader>wq :wqall<CR>           " Save and quit all
-nnoremap <Leader>c :wq<CR>              " Save and quit current buffer
-nnoremap <Leader>q :q<CR>               " Quit current window
-nnoremap <Leader>x :x<CR>               " Save and quit
-nnoremap <Leader>h :noh<CR>             " Clear search highlight
-nnoremap <Leader>r :source $MYVIMRC<CR> " Reload vimrc
-
-
-" === Resize splits using Ctrl + Arrow Keys ===
 nnoremap <C-Up>    :resize -2<CR>
 nnoremap <C-Down>  :resize +2<CR>
 nnoremap <C-Left>  :vertical resize -2<CR>
 nnoremap <C-Right> :vertical resize +2<CR>
 
-
-" === Syntax & Filetype ===
 filetype plugin indent on
 syntax on
 
-" === Clipboard fallback ===
 if has('clipboard')
   set clipboard=unnamedplus
 endif
 
-" === Toggle netrw file explorer with fixed width ===
 function! ToggleNetrw()
   for w in range(1, winnr('$'))
     if getbufvar(winbufnr(w), '&filetype') ==# 'netrw'
@@ -90,7 +71,6 @@ function! ToggleNetrw()
   vertical resize 25
 endfunction
 nnoremap <Leader>e :call ToggleNetrw()<CR>
-
 
 set tabline=%!BufTabLine()
 function! BufTabLine()
@@ -107,3 +87,34 @@ function! BufTabLine()
 endfunction
 set showtabline=2
 
+set background=dark
+highlight clear
+if exists("syntax_on")
+  syntax reset
+endif
+
+highlight Normal       ctermfg=189 ctermbg=NONE  cterm=NONE
+highlight Comment      ctermfg=108 cterm=italic
+highlight Constant     ctermfg=176
+highlight String       ctermfg=181
+highlight Identifier   ctermfg=182
+highlight Function     ctermfg=111
+highlight Statement    ctermfg=104 cterm=bold
+highlight Keyword      ctermfg=140
+highlight Type         ctermfg=110
+highlight Special      ctermfg=174
+highlight PreProc      ctermfg=143
+highlight Todo         ctermfg=223 ctermbg=NONE cterm=bold
+
+highlight LineNr       ctermfg=243
+highlight CursorLineNr ctermfg=189 cterm=bold
+highlight CursorLine   cterm=NONE ctermbg=236
+highlight Visual       ctermbg=238
+highlight Search       ctermfg=0   ctermbg=221
+highlight MatchParen   ctermfg=NONE ctermbg=244 cterm=bold
+
+highlight StatusLine   ctermfg=255 ctermbg=239 cterm=bold
+highlight VertSplit    ctermfg=239 ctermbg=NONE cterm=NONE
+highlight TabLine      ctermfg=244 ctermbg=233
+highlight TabLineSel   ctermfg=255 ctermbg=240 cterm=bold
+highlight TabLineFill  ctermfg=233 ctermbg=233
