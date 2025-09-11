@@ -185,3 +185,15 @@ end
 # Always mkdir a path (this doesn't inhibit functionality to make a single dir)
 abbr mkdir 'mkdir -p'
 source ~/.profile
+
+
+# Add Nix daemon environment
+if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+    # Ensure nix profile bin is in PATH
+    set -gx PATH /nix/var/nix/profiles/default/bin $PATH
+
+    # (Optional, for man pages and completion)
+    set -gx MANPATH /nix/var/nix/profiles/default/share/man $MANPATH
+    set -gx INFOPATH /nix/var/nix/profiles/default/share/info $INFOPATH
+end
+
