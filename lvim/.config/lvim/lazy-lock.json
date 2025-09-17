@@ -71,6 +71,7 @@
   "vim-latexencode": { "branch": "master", "commit": "5f5caebe0eb150198e8a98fccf115e68f8788c60" },
   "vim-slime": { "branch": "main", "commit": "869260840bd05c92408c6867e11d7288e3b24d9b" },
   "vim-table-mode": { "branch": "master", "commit": "e4365bde024f73e205eefa2fb78e3029ddb92ea9" },
+  "vim-tmux-navigator": { "branch": "master", "commit": "c45243dc1f32ac6bcf6068e5300f3b2b237e576a" },
   "vimtex": { "branch": "master", "commit": "bb4e401f97caf29873382c3b7dcb64369c928b3d" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
 }
