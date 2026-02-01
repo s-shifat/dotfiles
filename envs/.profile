@@ -6,4 +6,5 @@ export PATH="/home/shifat/my-scripts/:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
 export NOTES_KEY="~/.ssh/id_notes"
 export JUPYTER_PLATFORM_DIRS=1
+export PROJECTS="$HOME/projects"
 
