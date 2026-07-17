@@ -11,7 +11,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "wonderwall"; # Define your hostname.
+#  networking.hostName = "wonderwall"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
@@ -152,7 +152,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
 
-  system.stateVersion = "26.05"; # Did you read the comment?
+#  system.stateVersion = "26.05"; # Did you read the comment?
 
 }
 

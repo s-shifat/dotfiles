@@ -16,8 +16,8 @@
       };
 
       modules = [ 
+        ./hosts/wonderwall
         ./configuration.nix
-        ./modules/hardware-configuration.nix
         ./modules/hyprland.nix
       ];
 
