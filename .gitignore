@@ -1,0 +1,15 @@
+# Nix build result symlinks
+result
+result-*
+
+# Editor temporary files
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Local environment files and secrets
+.env
+.env.*
+*.secret
+secrets/
