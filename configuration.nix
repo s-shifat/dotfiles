@@ -58,14 +58,14 @@
   # services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.shifat = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager"]; # Enable ‘sudo’ for the user.
-    # initialPassword = "";
-    packages = with pkgs; [
-      tree
-    ];
-  };
+  #users.users.shifat = {
+  #  isNormalUser = true;
+  #  extraGroups = [ "wheel" "networkmanager"]; # Enable ‘sudo’ for the user.
+  #  # initialPassword = "";
+  #  packages = with pkgs; [
+  #    tree
+  #  ];
+  #};
 
   programs.firefox.enable = true;
 
@@ -77,7 +77,6 @@
     git
     curl
     htop
-    stow
     tmux
     tree
     thunar

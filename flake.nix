@@ -17,6 +17,7 @@
 
       modules = [ 
         ./hosts/wonderwall
+        ./users/shifat
         ./configuration.nix
         ./modules/hyprland.nix
       ];
