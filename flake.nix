@@ -17,9 +17,10 @@
 
       modules = [ 
         ./hosts/wonderwall
-        ./users/shifat
+        ./modules/nixos
         ./configuration.nix
-        ./modules/hyprland.nix
+        ./hyprland.nix
+        ./unstable-apps.nix
       ];
 
     };
