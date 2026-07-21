@@ -79,7 +79,6 @@
     htop
     tmux
     tree
-    thunar
     # unstable.neovim # to install something from the unstable branch
   ];
 
