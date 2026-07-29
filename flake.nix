@@ -16,11 +16,8 @@
       };
 
       modules = [ 
-        ./hosts/wonderwall
-        ./modules/nixos
-        ./configuration.nix
-        ./hyprland.nix
-        ./unstable-apps.nix
+        ./system/hosts/wonderwall
+        ./system/modules/nixos
       ];
 
     };
