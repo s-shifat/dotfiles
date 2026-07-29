@@ -1,3 +1,4 @@
+```txt
 ~/dotfiles/
 ├── flake.nix
 ├── flake.lock
@@ -57,4 +58,4 @@
 │   └── wallpapers/
 │
 └── scripts/
-
+```
