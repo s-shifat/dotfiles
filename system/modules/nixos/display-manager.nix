@@ -1,28 +1,12 @@
-{ config, pkgs, ... }:
+{ ... }:
 
-let
-  quietSession = pkgs.writeShellScript "greetd-quiet-session" ''
-    log_dir="''${XDG_STATE_HOME:-$HOME/.local/state}"
-    mkdir -p "$log_dir"
-
-    exec "$@" > "$log_dir/greetd-session.log" 2>&1
-  '';
-in
 {
-  services.greetd = {
+  # SDDM greeter runs on X11.
+  # Hyprland itself still runs as Wayland after login.
+  services.xserver.enable = true;
+
+  services.displayManager.sddm = {
     enable = true;
-
-    settings.default_session = {
-      command = ''
-        ${pkgs.tuigreet}/bin/tuigreet \
-          --time \
-          --remember \
-          --remember-session \
-          --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions \
-          --session-wrapper ${quietSession}
-      '';
-
-      user = "greeter";
-    };
+    wayland.enable = false;
   };
 }

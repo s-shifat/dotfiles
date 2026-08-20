@@ -1,24 +1,4 @@
 { pkgs, inputs, ... }:
-let
-  # ==========================================================================
-  # TEMPORARY: UNSTABLE PACKAGE SET
-  # ==========================================================================
-  # This exists only because Ashell is currently installed from nixpkgs-unstable.
-  #
-  # For now, keeping it here is acceptable.
-  # Later, either:
-  #
-  #   1. Pass pkgsUnstable from flake.nix through specialArgs, or
-  #   2. Move Ashell and this import into a focused package module.
-  #
-  # Possible future destination:
-  #   system/modules/nixos/packages.nix
-  #
-  pkgsUnstable = import inputs.nixpkgs-unstable {
-    system = pkgs.stdenv.hostPlatform.system;
-    config = pkgs.config;
-  };
-in
 
 {
   programs.firefox.enable = true;
@@ -41,8 +21,7 @@ in
     hyprlock
     hypridle
 
-    # Installed from nixpkgs-unstable.
-    pkgsUnstable.ashell
+    ashell
 
     # ------------------------------------------------------------------------
     # Wayland screenshot and clipboard tools
