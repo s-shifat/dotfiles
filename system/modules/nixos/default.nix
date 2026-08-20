@@ -19,6 +19,7 @@
     ./ssh.nix
     ./hyprland.nix
     ./polkit.nix
+    ./tailscale.nix
   ];
 
 }
