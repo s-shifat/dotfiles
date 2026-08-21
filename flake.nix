@@ -7,10 +7,16 @@
 
     # Secondary: stable, explicitly used when required
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
+
+    # Home Manager tracks unstable as well
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    inputs@{ nixpkgs, nixpkgs-stable, ... }:
+    inputs@{ nixpkgs, nixpkgs-stable, home-manager, ... }:
     let
       system = "x86_64-linux";
 
@@ -28,9 +34,16 @@
 
         modules = [
           ./system/hosts/wonderwall
+
+          # Home Manager framework
+          home-manager.nixosModules.home-manager
+
+          # Reusable NixOS modules
           ./system/modules/nixos
+
+          # User definitions
+          ./system/users/shifat
         ];
       };
     };
 }
-

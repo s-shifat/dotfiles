@@ -12,7 +12,6 @@
     ./amd-gpu.nix
     ./removable-storage.nix
     ./fonts.nix
-    ./users.nix
     ./nix-settings.nix
     ./display-manager.nix
     ./packages.nix
@@ -20,6 +19,7 @@
     ./hyprland.nix
     ./polkit.nix
     ./tailscale.nix
+    ./home-manager.nix
   ];
 
 }

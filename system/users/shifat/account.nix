@@ -4,16 +4,14 @@
   users.users.shifat = {
     isNormalUser = true;
 
-    extraGroups = [ 
-      "wheel" 
+    extraGroups = [
+      "wheel"
       "networkmanager"
     ];
-
 
     packages = with pkgs; [
       stow
     ];
   };
-
-
 }
+
