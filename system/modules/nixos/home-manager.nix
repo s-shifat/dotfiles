@@ -8,6 +8,9 @@
     # Install HM packages into /etc/profiles/per-user/<user>.
     useUserPackages = true;
 
+    # Back up unmanaged files/directories that collide with HM-managed paths.
+    backupFileExtension = "hm-backup";
+
     # Make additional flake package sources available
     # inside Home Manager modules.
     extraSpecialArgs = {

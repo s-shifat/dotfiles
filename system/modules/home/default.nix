@@ -4,6 +4,7 @@
   imports = [
     ./remmina
     ./cursor
+    ./hyprland
   ];
 }
 

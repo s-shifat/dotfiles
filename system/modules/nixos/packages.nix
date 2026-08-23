@@ -1,9 +1,12 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
+    # ------------------------------------------------------------------------
+    # Core utilities
+    # ------------------------------------------------------------------------
     vim
     wget
     git
@@ -11,30 +14,11 @@
     htop
     tmux
     tree
+
     # ------------------------------------------------------------------------
-    # Desktop applications
+    # Desktop applications not yet migrated to Home Manager
     # ------------------------------------------------------------------------
-    wofi
     kitty
-    dunst
-    hyprpaper
-    hyprlock
-    hypridle
-
-    ashell
-
-    # ------------------------------------------------------------------------
-    # Wayland screenshot and clipboard tools
-    # ------------------------------------------------------------------------
-    grim
-    slurp
-    wl-clipboard
-
-    # ------------------------------------------------------------------------
-    # Desktop control utilities
-    # ------------------------------------------------------------------------
-    playerctl
-    brightnessctl
     pavucontrol
 
     # ------------------------------------------------------------------------
