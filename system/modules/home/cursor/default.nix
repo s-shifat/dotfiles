@@ -2,8 +2,6 @@
 
 {
   imports = [
-    ./remmina
-    ./cursor
+    ./settings.nix
   ];
 }
-
