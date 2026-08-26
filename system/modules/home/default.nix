@@ -5,6 +5,7 @@
     ./remmina
     ./cursor
     ./hyprland
+    ./rofi
   ];
 }
 
