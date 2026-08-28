@@ -8,6 +8,5 @@
 
   services.blueman = {
     enable = true;
-    withApplet = false;
   };
 }
