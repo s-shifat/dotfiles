@@ -6,6 +6,7 @@
     ./boot.nix
     ./locale.nix
     ./networking.nix
+    ./bluetooth.nix
     ./power.nix
     ./audio.nix
     ./graphics.nix
