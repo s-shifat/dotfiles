@@ -1,0 +1,135 @@
+log_level = "warn"
+
+# Optional localization / output targeting:
+# language = "en-US"
+# region = "en-US"
+# outputs = "All"  # or "Active", or { Targets = ["eDP-1"] }
+# position = "Bottom"
+# layer = "Top"    # "Bottom", "Top", or "Overlay"
+# enable_esc_key = true
+
+[modules]
+left = ["SystemInfo", ["Workspaces"]]
+center = ["WindowTitle", "Tempo"]
+right = ["MediaPlayer", ["Tray", "Privacy", "Battery", "Settings"]]
+
+[workspaces]
+# Useful alternatives:
+# visibility_mode = "MonitorSpecific"
+# group_by_monitor = true
+# enable_workspace_filling = true
+# max_workspaces = 10
+# workspace_names = ["1", "2", "3"]
+# disable_special_workspaces = true
+# enable_virtual_desktops = true
+# invert_scroll_direction = "Trackpad"
+
+[window_title]
+mode = "InitialTitle"
+truncate_title_after_length = 150
+
+[system_info]
+indicators = ["Cpu", "Memory"]
+interval = 5
+
+# Other available indicators include:
+# "MemorySwap", "Temperature", "IpAddress",
+# "DownloadSpeed", "UploadSpeed",
+# { Disk = { Disk = "/dev/nvme0n1p2", Name = "Root" } }
+
+[system_info.cpu]
+warn_threshold = 60
+alert_threshold = 80
+# format = "Frequency"  # default is percentage
+
+[system_info.memory]
+warn_threshold = 70
+alert_threshold = 85
+# format = "Fraction"   # default is percentage
+
+[tempo]
+clock_format = "%a %d %b %R"
+
+# Optional:
+# formats = ["%a %d %b %R", "%Y-%m-%d %H:%M:%S", "%H:%M:%S"]
+# timezones = ["UTC", "America/Chicago", "Europe/London"]
+# weather_location = "Current"
+# weather_location = { City = "Jackson" }
+# weather_location = { Coordinates = [32.2988, -90.1848] }
+# weather_indicator = "Icon"
+# wind_speed_unit = "Mph"
+
+[notifications]
+format = "%H:%M"
+show_timestamps = true
+show_bodies = true
+
+# Optional notification behavior:
+# grouped = false
+# toast = true
+# toast_position = "TopRight"
+# toast_timeout = 5000
+# toast_limit = 5
+# toast_max_height = 150
+# blocklist = ["regex"]
+
+[settings]
+# Pause active media before locking.
+lock_cmd = "playerctl --all-players pause; hyprlock &"
+
+audio_sinks_more_cmd = "pavucontrol -t 3"
+audio_sources_more_cmd = "pavucontrol -t 4"
+wifi_more_cmd = "nm-connection-editor"
+vpn_more_cmd = "nm-connection-editor"
+bluetooth_more_cmd = "blueman-manager"
+
+indicators = [
+  "IdleInhibitor",
+  "PowerProfile",
+  "Audio",
+  "Microphone",
+  "Bluetooth",
+  "Network",
+  "Vpn",
+  "Battery",
+  "Brightness",
+]
+
+# Optional:
+# enable_tooltips = false
+# hibernate_cmd = "systemctl hibernate"
+# peripheral_indicators = "All"
+# peripheral_battery_format = "IconAndPercentage"
+# peripheral_expanded_by_default = false
+# remove_airplane_btn = true
+# remove_idle_btn = true
+
+[appearance]
+primary_color = "#7aa2f7"
+success_color = "#9ece6a"
+warning_color = "#e0af68"
+danger_color = "#f7768e"
+text_color = "#a9b1d6"
+workspace_colors = ["#7aa2f7", "#9ece6a"]
+
+# Optional:
+# font_name = "Sans"
+# scale_factor = 1.0
+# opacity = 1.0
+# special_workspace_colors = ["#7aa2f7", "#9ece6a"]
+
+[appearance.menu]
+opacity = 0.9
+
+[appearance.background_color]
+base = "#1a1b26"
+weak = "#24273a"
+strong = "#414868"
+
+# Additional background slots are available if you want finer control:
+# weakest = "#000000"
+# weaker = "#000000"
+# neutral = "#000000"
+# stronger = "#000000"
+# strongest = "#000000"
+# text = "#ffffff"

@@ -2,10 +2,11 @@
 
 {
   imports = [
-    ./remmina
     ./cursor
     ./hyprland
+    ./ashell
     ./rofi
+    ./remmina
   ];
 }
 

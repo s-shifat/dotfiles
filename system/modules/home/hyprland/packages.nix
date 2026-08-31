@@ -9,7 +9,6 @@
     hyprlauncher
 
     # Desktop session
-    ashell
     dunst
 
     # Wayland utilities
