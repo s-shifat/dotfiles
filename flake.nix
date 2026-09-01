@@ -13,6 +13,10 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # neovim
+    neovim.url = "github:s-shifat/neovim";
+
   };
 
   outputs =
