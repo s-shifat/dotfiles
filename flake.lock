@@ -26,11 +26,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1789112315,
-        "narHash": "sha256-lq88cUJNkJ9N2p+ChxwHJYEP1+rrAH0TufL2rbVP6QA=",
+        "lastModified": 1789199322,
+        "narHash": "sha256-VFLJEfoFeNVv+S4br1kZ9TRgODMtiNz26scpTX4R5SY=",
         "owner": "s-shifat",
         "repo": "neovim",
-        "rev": "7dae2d358e44a1cd584a65c0c15b298d40daa700",
+        "rev": "70a7aa993c09ecf60d77138d3f9a2f16fde7249a",
         "type": "github"
       },
       "original": {
