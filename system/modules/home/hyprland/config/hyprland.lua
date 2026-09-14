@@ -50,7 +50,7 @@ hl.monitor({
 
 -- Set programs that you use
 local terminal    = "kitty"
-local fileManager = "dolphin"
+local fileManager = "thunar"
 local menu = "rofi -show drun -show-icons"
 local browser     = "firefox"
 local statusbar   = "ashell"
@@ -305,6 +305,28 @@ hl.bind(mainMod .. " + H",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + K",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
+
+-- Move window with mod+shift+{hjkl}
+hl.bind(mainMod .. "+ SHIFT + H",  hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. "+ SHIFT + L", hl.dsp.window.move({ direction = "right" }))
+hl.bind(mainMod .. "+ SHIFT + K",    hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. "+ SHIFT + J",  hl.dsp.window.move({ direction = "down" }))
+
+
+-- Resize windows
+hl.bind(mainMod .. "+ SHIFT + Right", hl.dsp.window.resize({x=  30, y=   0, relative=true}))
+hl.bind(mainMod .. "+ SHIFT + Left",  hl.dsp.window.resize({x= -30, y=   0, relative=true}))
+hl.bind(mainMod .. "+ SHIFT + Up",    hl.dsp.window.resize({x=   0, y=- 30, relative=true}))
+hl.bind(mainMod .. "+ SHIFT + Down",  hl.dsp.window.resize({x=   0, y=  30, relative=true}))
+
+
+-- Full Screen
+hl.bind(mainMod .. "+ F",  hl.dsp.window.fullscreen())
+
+-- Toggle Floating Mode
+hl.bind(mainMod .. "+ W",  hl.dsp.window.float())
+
+
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
