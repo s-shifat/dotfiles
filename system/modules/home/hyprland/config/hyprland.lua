@@ -54,6 +54,7 @@ local fileManager = "thunar"
 local menu = "rofi -show drun -show-icons"
 local browser     = "firefox"
 local statusbar   = "ashell"
+local scLock   = "hyprlock"
 
 
 -------------------
@@ -289,6 +290,8 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + return", hl.dsp.exec_cmd(terminal))
+-- Screen Lock
+hl.bind(mainMod .. " + Backspace", hl.dsp.exec_cmd(scLock))
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
