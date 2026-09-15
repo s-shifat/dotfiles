@@ -8,6 +8,7 @@
     ./rofi
     ./remmina
     ./neovim
+    ./codex
   ];
 }
 

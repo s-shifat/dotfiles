@@ -1,0 +1,8 @@
+approvals_reviewer = "user"
+[tui]
+status_line = ["model-with-reasoning", "current-dir", "permissions", "approval-mode", "context-remaining", "five-hour-limit"]
+status_line_use_colors = true
+
+[projects."/home/shifat/dotfiles"]
+trust_level = "trusted"
+
