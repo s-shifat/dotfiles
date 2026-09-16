@@ -9,6 +9,7 @@
     ./remmina
     ./neovim
     ./codex
+    ./edge
   ];
 }
 
