@@ -7,6 +7,7 @@
     ./ashell
     ./rofi
     ./remmina
+    ./tmux
     ./neovim
     ./codex
     ./edge
