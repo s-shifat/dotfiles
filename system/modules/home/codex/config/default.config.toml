@@ -6,4 +6,4 @@ status_line = ["model-with-reasoning", "current-dir", "permissions", "approval-m
 status_line_use_colors = true
 
 [tui.model_availability_nux]
-gpt-6-astra = 3
+gpt-6-astra = 4
