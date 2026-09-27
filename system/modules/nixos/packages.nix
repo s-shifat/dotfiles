@@ -13,6 +13,10 @@
     curl
     htop
     tree
+    ripgrep
+    fd
+    jq
+    yq-go
 
     # ------------------------------------------------------------------------
     # Desktop applications not yet migrated to Home Manager
