@@ -11,6 +11,7 @@
     ./neovim
     ./codex
     ./edge
+    ./pi
   ];
 }
 
