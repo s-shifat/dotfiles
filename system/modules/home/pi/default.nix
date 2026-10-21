@@ -1,5 +1,8 @@
 { ... }:
 
 {
-  programs.pi-coding-agent.enable = true;
+  imports = [
+    ./package.nix
+    ./config.nix
+  ];
 }

@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
-  home.packages = [
-    pkgs.microsoft-edge
+  imports = [
+    ./package.nix
+    ./config.nix
   ];
 }

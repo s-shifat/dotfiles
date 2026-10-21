@@ -1,7 +1,7 @@
-{pkgs, ...}: {
-  programs.rofi = {
-    enable = true;
+{ pkgs, ... }:
 
+{
+  programs.rofi = {
     theme = "transparent";
 
     terminal = "${pkgs.kitty}/bin/kitty";
