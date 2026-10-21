@@ -8,10 +8,11 @@
     ./rofi
     ./remmina
     ./tmux
+    ./kitty
+    ./foot
     ./neovim
     ./codex
     ./edge
     ./pi
   ];
 }
-
