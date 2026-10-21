@@ -14,5 +14,7 @@
     ./codex
     ./edge
     ./pi
+    ./terminal-tools
+    ./git
   ];
 }
