@@ -59,3 +59,11 @@
 │
 └── scripts/
 ```
+Update only Codex: `nix flake update codexPkgs`.
+
+Update the full system from this repository (including Codex):
+
+```bash
+nix flake update
+sudo nixos-rebuild switch --flake .#wonderwall
+```

@@ -17,6 +17,8 @@
     # neovim
     neovim.url = "github:s-shifat/neovim";
 
+    # Codex CLI packages, pinned independently from the system nixpkgs input.
+    codexPkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
   outputs =
