@@ -10,5 +10,6 @@ in
   home.packages = [
     codex
     cx
+    pkgs.bubblewrap
   ];
 }
